@@ -1,15 +1,16 @@
 <?= $this->layout('_theme') ?>
 
+<div class="bg-home"></div>
 <section class="blog pb-5">
     <article class="blog-header container text-center">
         <h1 class="">Blog</h1>
         <p>
-            Seja Bem-vindo(a) ao <b class="text-danger">blog</b>. Fique a vontade!!
+            Seja Bem-vindo(a) e fique a vontade!!
         </p>
         </div>
     </article>
-    <div class="bg-home"></div>
-    <article class="blog-search container ">
+   
+    <article class="blog-search container">
         <form name="search" class="ml-2 ml-lg-0" action="#" method="get" enctype="multipart/form-data">
             <label class="row blog-form-search align-items-center">
                 <input type="text" name="s" placeholder="Encontre um artigo:" required />
@@ -41,7 +42,7 @@
                 <div class="news-item pb-1">
 
                     <a href="#">
-                        <div class="img" style="background-image: url('/assets/img/card.jpg');"> </div>
+                        <div class="img" style="background-image: url('https://via.placeholder.com/300x210');"> </div>
                     </a>
 
                     <div class="content">
@@ -67,7 +68,7 @@
                 <div class="news-item pb-1">
 
                     <a href="#">
-                        <div class="img" style="background-image: url('/assets/img/card.jpg');"> </div>
+                        <div class="img" style="background-image: url('https://via.placeholder.com/300x210');"> </div>
                     </a>
 
                     <div class="content">
@@ -93,7 +94,7 @@
                 <div class="news-item pb-1">
 
                     <a href="#">
-                        <div class="img" style="background-image: url('/assets/img/card.jpg');"> </div>
+                        <div class="img" style="background-image: url('https://via.placeholder.com/300x210');"> </div>
                     </a>
 
                     <div class="content">

@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= package('bootstrap/dist/css/bootstrap.min.css') ?>" />
     <link rel="stylesheet" href="<?= package('boxicons/css/boxicons.min.css') ?>" />
-    <link rel="stylesheet" href="<?= package('owl.carousel/dist/assets/owl.carousel.min.css') ?>" />
     <link rel="stylesheet" href="<?= package('@fortawesome/fontawesome-free/css/all.min.css') ?>" />
     <link rel="stylesheet" href="<?= asset("style.min.css") ?>">
 </head>
@@ -17,7 +16,7 @@
 <body>
     <!-- Header -->
 
-    <header class="header navbar navbar-expand-md navbar-light bg-white fixed-top">
+    <header class="header navbar navbar-expand-md navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand brand" href="">
                 <i class="fas fa-blog"></i>
@@ -44,7 +43,7 @@
     </header>
 
     <main>
-        <div class="main-blog"></div>
+        <div class="m-header"></div>
         <?= $this->section('content') ?>
     </main>
 
@@ -80,10 +79,8 @@
     <script src="<?= package('jquery/dist/jquery.min.js') ?>"></script>
     <script src="<?= package('popper.js/dist/popper.min.js') ?>"></script>
     <script src="<?= package('bootstrap/dist/js/bootstrap.min.js') ?>"></script>
-    <script src="<?= package('owl.carousel/dist/owl.carousel.min.js') ?>"></script>
-    <script src="<?= package('jquery-parallax.js/parallax.min.js') ?>"></script>
     <script src="<?= package('boxicons/dist/boxicons.js') ?>"></script>
-    <script src="<?= asset("script.min.js") ?>"></script>
+    <script src="<?= asset("scripts.min.js") ?>"></script>
 </body>
 
 </html>
