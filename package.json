@@ -10,6 +10,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",
     "bootstrap": "^4.5.0",
+    "boxicons": "^2.0.7",
     "cropperjs": "^1.5.9",
     "izitoast": "^1.4.0",
     "jquery": "^3.5.1",

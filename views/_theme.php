@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?= $title ?> | blog</title>
-    <link rel="shortcut icon" href="./assets/img/brand/brand.ico" type="image/x-icon" />
+    <title><?= !empty($title) ? $title . " | blog" : "Blog" ?> </title>
+    <link rel="shortcut icon" href="<?= asset('img/favicon.ico') ?>" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= package('bootstrap/dist/css/bootstrap.min.css') ?>" />
     <link rel="stylesheet" href="<?= package('boxicons/css/boxicons.min.css') ?>" />
@@ -43,7 +43,8 @@
         </div>
     </header>
 
-    <main class="py-5 mt-4">
+    <main>
+        <div class="main-blog"></div>
         <?= $this->section('content') ?>
     </main>
 
@@ -81,6 +82,7 @@
     <script src="<?= package('bootstrap/dist/js/bootstrap.min.js') ?>"></script>
     <script src="<?= package('owl.carousel/dist/owl.carousel.min.js') ?>"></script>
     <script src="<?= package('jquery-parallax.js/parallax.min.js') ?>"></script>
+    <script src="<?= package('boxicons/dist/boxicons.js') ?>"></script>
     <script src="<?= asset("script.min.js") ?>"></script>
 </body>
 
