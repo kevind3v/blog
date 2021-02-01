@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+}
+:root {
+  --font-small: 0.875em;
+  --font-normal: 1em;
+  --font-medium: 1.3em;
+  --font-large: 1.6em;
+
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+
+  --gradient-red: linear-gradient(
+    to right,
+    #f87171 0%,
+    #ef4444 50%,
+    #f87171 100%
+  );
+
+  --font-family: 'Nunito', Helvetica, sans-serif;
+}
+/*----------------------------*/
+/*---------- DEFAULT ---------*/
+/*----------------------------*/
+.btn-red {
+  color: #fff;
+  background: var(--red-700);
+  padding: 6px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  font-weight: 800;
+}
+.btn-red:hover {
+  color: #000 !important;
+  background: var(--red-300);
+}
+
+/*-----------------------------*/
+/*----------- HEADER ----------*/
+/*-----------------------------*/
+.header {
+  max-height: 65px;
+  background: var(--gradient-red) !important;
+}
+.header .navbar-brand {
+  font-size: 2.3em !important;
+  color: #fff;
+  transition: all 0.4s;
+}
+.header .navbar-brand:hover {
+  color: #000;
+}
+.header .navbar-nav li .link {
+  color: #fff !important;
+}
+.header .navbar-nav li a {
+  font-weight: 800;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+}
+.header .navbar-nav li .nav-link:hover {
+  color: #000 !important;
+}
+/*-----------------------------*/
+/*----------- FOOTER ----------*/
+/*-----------------------------*/
+.main-footer .footer-color {
+  background-color: var(--red-200);
+}
+
+.copyright {
+  font-size: var(--font-normal);
+  padding: 25px 0;
+  font-weight: 600;
+  margin: 0;
+}
+
+.copyright ul {
+  list-style: none;
+}
+
+.copyright ul li {
+  display: inline;
+  color: #000;
+}
+
+.copyright a {
+  text-decoration: none;
+  color: var(--red-600);
+  font-weight: 800;
+}
+
+.copyright a i {
+  color: rgba(127, 29, 29, 0.4);
+  font-size: 1.3em;
+  margin-right: 0.7em;
+}
+.copyright a i:hover {
+  color: var(--green-500);
+}
