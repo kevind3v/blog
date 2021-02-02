@@ -514,3 +514,30 @@ h5 {
 .badge-category {
   font-size: 1em;
 }
+/*---------------------------*/
+/*----------- IMAGE MODAL ----------*/
+/*---------------------------*/
+.close-modal {
+  color: var(--red);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.close-modal:hover {
+  color: #000;
+}
+
+#modal img {
+  display: block;
+  max-width: 100%;
+}
+
+.modal .preview {
+  overflow: hidden;
+  width: 300px;
+  height: 210px;
+  min-width: 300px;
+  min-height: 210px;
+  margin: 10px;
+  border: 1px solid var(--red-600);
+}

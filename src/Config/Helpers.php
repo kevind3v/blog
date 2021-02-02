@@ -111,7 +111,7 @@ function date_fmt_app(string $date): string
 
 /**
  *
- * Transformar uma string em url
+ * Transform string in URL
  * @param string $string
  * @return string
  */
@@ -132,4 +132,96 @@ function str_slug(string $string): string
         )
     );
     return $slug;
+}
+
+/**
+ * Summarize text by words
+ * @param string $string
+ * @param integer $limit
+ * @param string $pointer
+ * @return string
+ */
+function strwords(string $string, int $limit, string $pointer = "..."): string
+{
+    $string = trim(
+        filter_var($string, FILTER_SANITIZE_SPECIAL_CHARS)
+    );
+    $arrWords = explode(" ", $string);
+    $numWords = count($arrWords);
+
+    if ($numWords < $limit) {
+        return $string;
+    }
+
+    $words = implode(" ", array_slice($arrWords, 0, $limit));
+    return "{$words}{$pointer}";
+}
+
+/**
+ * Summarize text by chars
+ * @param string $string
+ * @param integer $limit
+ * @param string $pointer
+ * @return string
+ */
+function strchars(string $string, int $limit, string $pointer = "..."): string
+{
+    $string = trim(
+        filter_var($string, FILTER_SANITIZE_SPECIAL_CHARS)
+    );
+    if (mb_strlen($string) <= $limit) {
+        return $string;
+    }
+
+    $chars = mb_substr(
+        $string,
+        0,
+        mb_strrpos(
+            mb_substr($string, 0, $limit),
+            " "
+        )
+    );
+    return "{$chars}{$pointer}";
+}
+
+/**
+ * ------------------
+ * ----- UPLOAD -----
+ * ------------------
+ */
+
+/**
+ * Treat base64 image
+ *
+ * @param string $image
+ * @return string|null
+ */
+function image(string $image, string $old = null): ?string
+{
+    if (!empty($image) && preg_match("/data:image\\/png;base64,/", $image)) {
+        $first_array = explode(";", $image);
+        $array = explode(",", $first_array[1]);
+        if ($data = base64_decode($array[1], true)) {
+            if ($old) {
+                removeImage($old);
+            }
+            $name = time() . '.png';
+            if (file_put_contents('uploads/' . $name, $data)) {
+                return $name;
+            }
+        }
+    }
+    return null;
+}
+
+/**
+ * Remove directory image
+ * @param string $image
+ * @return boolean
+ */
+function removeImage(string $image): void
+{
+    if (file_exists("uploads/{$image}")) {
+        unlink("uploads/{$image}");
+    }
 }

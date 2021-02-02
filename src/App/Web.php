@@ -3,8 +3,10 @@
 namespace Src\App;
 
 use BrBunny\BrPlates\BrPlates;
+use CoffeeCode\Paginator\Paginator;
 use Src\Helpers\Message;
 use Src\Models\Category;
+use Src\Models\Post;
 
 class Web
 {
@@ -22,9 +24,22 @@ class Web
     }
 
     /** Home Controller */
-    public function home(): void
+    public function home(?array $data): void
     {
-        $this->view->show("blog", []);
+        $blog = (new Post())->find();
+
+        $pager = new  Paginator(url("/p/"));
+        $pager->pager($blog->count(), 9, ($data['page'] ?? 1));
+
+        $this->view->show("blog", [
+            "blog" => $blog
+            ->order("id DESC")
+            ->limit($pager->limit())
+                ->offset($pager->offset())
+                ->fetch(true),
+            "paginator" => $pager->render()
+        ]);
+        var_dump($data['page']);
     }
 
     /** About Controller */
@@ -52,8 +67,27 @@ class Web
             $json['message'] = $this->message->warning(
                 "Informe o campo abaixo!!"
             )->render();
-                echo json_encode($json);
+            echo json_encode($json);
+            return;
+        }
+
+        if ($image = image($data['image'])) {
+            $post = new Post();
+            $post->category = $data['category'];
+            $post->title = $data['title'];
+            $post->uri = str_slug($data['title']);
+            $post->subtitle = $data['subtitle'];
+            $post->content = $data['content'];
+            $post->cover = $image;
+
+            if ($post->save()) {
+                $response['message'] = "Artigo cadastrado com sucesso";
+                $response['error'] = false;
+                echo json_encode($response);
                 return;
+            } else {
+                removeImage($image);
+            }
         }
     }
 
@@ -74,8 +108,8 @@ class Web
             $json['message'] = $this->message->warning(
                 "Informe o campo abaixo!!"
             )->render();
-                echo json_encode($json);
-                return;
+            echo json_encode($json);
+            return;
         }
 
         $dataCategory = filter_var($data['category'], FILTER_SANITIZE_STRIPPED);
@@ -87,8 +121,8 @@ class Web
             $json['message'] = $this->message->warning(
                 "Categoria já cadastrada"
             )->render();
-                echo json_encode($json);
-                return;
+            echo json_encode($json);
+            return;
         }
 
         $category->title = $dataCategory;

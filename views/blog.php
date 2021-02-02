@@ -18,31 +18,38 @@
             </label>
         </form>
     </article>
-    <article class="blog-content container mt-3 text-center">
-        <div class="empty_content">
-            <img class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
-            <h3 class="empty_content_title">Vazio :/</h3>
-            <p class="empty_content_desc">Busca por <b style="opacity: 0.5;">
-                    PHP
-                </b> não retornou nada :(</p>
-            <a href="" title="Blog" class="btn btn-gradient py-3 px-5">Voltar ao
-                blog</a>
-        </div>
-    </article>
-    <article class="blog-content container mt-3 text-center">
-        <div class="empty_content">
-            <img class="img-fluid mb-3" src="<?= asset('img/svg/under.svg') ?>" alt="Vazio!!">
-            <h3 class="empty_content_title">Ainda estamos trabalhando aqui!!</h3>
-            <p class="empty_content_desc">O conteúdo está sendo preparado :)</p>
-        </div>
-    </article>
-    <article class="container mt-3 text-center">
-        <div class="blog_articles row">
-            <?php for ($i = 0; $i < 6; $i++) : ?>
-                <?= $this->insert('card') ?>
-            <?php endfor; ?>
-        </div>
-    </article>
+    <?php if (empty($blog) && !empty($search)) : ?>
+        <article class="blog-content container mt-3 text-center">
+            <div class="empty_content">
+                <img class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
+                <h3 class="empty_content_title">Vazio :/</h3>
+                <p class="empty_content_desc">Busca por <b style="opacity: 0.5;">
+                        PHP
+                    </b> não retornou nada :(</p>
+                <a href="" title="Blog" class="btn btn-gradient py-3 px-5">Voltar ao
+                    blog</a>
+            </div>
+        </article>
+    <?php elseif (empty($blog)) : ?>
+        <article class="blog-content container mt-3 text-center">
+            <div class="empty_content">
+                <img class="img-fluid mb-3" src="<?= asset('img/svg/under.svg') ?>" alt="Vazio!!">
+                <h3 class="empty_content_title">Ainda estamos trabalhando aqui!!</h3>
+                <p class="empty_content_desc">O conteúdo está sendo preparado :)</p>
+            </div>
+        </article>
+    <?php else : ?>
+        <article class="container mt-3 text-center">
+            <div class="blog_articles row">
+                <?php foreach ($blog as $post) : ?>
+                    <?php $this->insert("card", ["post" => $post]); ?>
+                <?php endforeach; ?>
+            </div>
+            <?= $paginator ?>
+        </article>
+    <?php endif; ?>
+
+    
 </section>
 
 <!-- STYLE -->

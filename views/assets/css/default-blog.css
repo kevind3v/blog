@@ -1,0 +1,35 @@
+/*DEFAULT PAGINATOR*/
+.paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.paginator a:not([href='#']),
+.paginator span {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 8px 16px;
+  margin: auto 5px;
+  border-right: 0;
+  color: #555555;
+  font-weight: 700;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+.paginator a:not(.paginator_active) {
+  background: #f7f7f7cc;
+}
+
+.paginator a:not([href='#']):hover {
+  background: var(--red-600);
+  background-size: 200%;
+  color: #fbfbfb;
+}
+
+.paginator span {
+  color: #fff;
+  background: var(--red-400);
+}

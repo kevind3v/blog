@@ -19,13 +19,12 @@
                 <form method="post" id="form" action="#">
                     <div class="row">
                         <div class="col-12 mb-3">
-                            <label for="name">Titulo do artigo</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="PHP 8" />
+                            <label for="title">Titulo do artigo</label>
+                            <input type="text" class="form-control" id="post-title" name="title" placeholder="PHP 8" />
                         </div>
                         <div class="col-12 mb-3">
                             <label for="subtitle">Subtítulo</label>
-                            <textarea type="text" class="form-control" id="subtitle" name="subtitle"
-                                placeholder="Digite o subtítulo"></textarea>
+                            <textarea type="text" class="form-control" id="post-subtitle" name="subtitle" placeholder="Digite o subtítulo"></textarea>
                         </div>
                     </div>
                     <div class="row">
@@ -37,7 +36,7 @@
                         </div>
                         <div class="col-md-5 col-sm-12 mb-3">
                             <label for="category">Categoria</label>
-                            <select class="form-control" name="category" id="category">
+                            <select class="form-control" name="category" onchange="categories(this)" id="post-category">
                                 <option value="#" selected>Selecione...</option>
                                 <?php if (!empty($categories)) : ?>
                                     <?php foreach ($categories as $value) : ?>
@@ -50,8 +49,7 @@
 
                     <div class="mb-3">
                         <label for="content">Conteúdo</label>
-                        <textarea placeholder="Digite aqui..." class="form-control" id="content" rows="5"
-                            name="content"></textarea>
+                        <textarea placeholder="Digite aqui..." class="form-control" id="content" rows="5" name="content"></textarea>
                     </div>
                     <button class="btn btn-red py-2 btn-block" type="submit">Salvar artigo</button>
                 </form>
@@ -65,19 +63,19 @@
                     <div class="news-item pb-1">
 
                         <a href="#">
-                            <img class="img-fluid img" src="https://via.placeholder.com/300x210" alt="">
+                            <img class="img-fluid img" id="preview-img"
+                            src="https://via.placeholder.com/300x210" alt="">
                         </a>
 
                         <div class="content">
-                            <p class="mt-2 mb-2"><a href="#" class="category">Categoria</a></p>
+                            <p class="mt-2 mb-2"><a href="#" class="category card-category">Categoria</a></p>
 
                             <h5 class="news-title">
-                                <a href="#">Dolore amet esse aute cillum est minim minim.</a>
+                                <a href="#" class="card-title">Título</a>
                             </h5>
 
                             <p class="news-subtitle">
-                                <a href="#">Nisi ullamco duis est nulla ipsum Lorem excepteur proident commodo laborum
-                                    quis occaecat velit cupidatat.</a>
+                                <a href="#" class="card-subtitle">Subtitulo</a>
                             </p>
 
                             <p class="meta">
@@ -96,20 +94,20 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="text-left mb-2">
-                    <h5 class="bold">Cortar <span class="text-warning">Imagem</span></h5>
+                    <h5 class="bold">Cortar <span class="text-danger">Imagem</span></h5>
                 </div>
                 <div class="row">
-                    <div class="col-11 ml-1 col-lg-7">
+                    <div class="col-12 ml-1 col-lg-6">
                         <img src="" id="image_upload">
                     </div>
-                    <div class="col-12 col-lg-4 mt-2">
-                        <p class="bold ml-3 mb-0">Preview</p>
+                    <div class="col-12 col-lg-4 mt-2 ml-lg-3">
+                        <b class="ml-3 mb-0">Preview</b>
                         <div class="preview"></div>
                     </div>
                 </div>
                 <div class="text-right mt-2">
                     <span class="close-modal" data-dismiss="modal">Cancelar</span>
-                    <button type="button" id="crop" class="btn btn-yellow ml-2 px-5">Cortar Imagem</button>
+                    <button type="button" id="crop" class="btn btn-red ml-2 px-5">Cortar Imagem</button>
                 </div>
             </div>
         </div>
@@ -117,23 +115,5 @@
 </div>
 
 <?= $this->start('js'); ?>
-<script src='https://cdn.tiny.cloud/1/ano7ln2z5t36elzqajxcl0zh2swhoak771laui2lexcvpreg/tinymce/5/tinymce.min.js'
-    referrerpolicy="origin">
-</script>
-<script>
-tinymce.init({
-    selector: '#content',
-    menubar: false,
-    language: "pt_BR",
-    resize: false,
-    plugins: [
-        'advlist autolink lists charmap print hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-        'table emoticons template paste help'
-    ],
-    toolbar: 'undo redo | code | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-        'bullist numlist outdent indent | print | forecolor backcolor emoticons | help ',
-    content_css: 'body { font-family:"Nunito",Arial,sans-serif;  }'
-});
-</script>
+<script src='https://cdn.tiny.cloud/1/ano7ln2z5t36elzqajxcl0zh2swhoak771laui2lexcvpreg/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
 <?= $this->end(); ?>

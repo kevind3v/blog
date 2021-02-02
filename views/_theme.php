@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?= package('bootstrap/dist/css/bootstrap.min.css') ?>" />
     <link rel="stylesheet" href="<?= package('boxicons/css/boxicons.min.css') ?>" />
     <link rel="stylesheet" href="<?= package('@fortawesome/fontawesome-free/css/all.min.css') ?>" />
+    <link rel="stylesheet" href="<?= package("/cropperjs/dist/cropper.min.css"); ?>" />
     <link rel="stylesheet" href="<?= asset("style.min.css") ?>">
     <?= $this->section('style') ?>
 </head>
@@ -91,6 +92,7 @@
     <script src="<?= package('jquery/dist/jquery.min.js') ?>"></script>
     <script src="<?= package('popper.js/dist/popper.min.js') ?>"></script>
     <script src="<?= package('bootstrap/dist/js/bootstrap.min.js') ?>"></script>
+    <script src="<?= package("cropperjs/dist/cropper.min.js"); ?>"></script>
     <script src="<?= package('boxicons/dist/boxicons.js') ?>"></script>
     <script src="<?= package('jquery-form/dist/jquery.form.min.js') ?>"></script>
     <script src="<?= asset("scripts.min.js") ?>"></script>

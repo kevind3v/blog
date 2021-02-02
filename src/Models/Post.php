@@ -10,9 +10,8 @@ class Post extends DataLayer
     /**
      * @param bool $all = ignore status and post_at
      */
-    public function __construct(bool $all = false)
+    public function __construct()
     {
-        $this->all = $all;
         parent::__construct("posts", ["title", "subtitle", "content"]);
     }
 
@@ -22,7 +21,7 @@ class Post extends DataLayer
         return $find->fetch();
     }
 
-    public function category(): ?Category
+    public function categories(): ?Category
     {
         if ($this->category) {
             return (new Category())->findById($this->category);

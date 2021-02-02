@@ -10,6 +10,8 @@ $router->namespace('Src\App');
 
 /** Web */
 $router->get("/", "Web:home", "web.home");
+$router->get("/p/{page}", "Web:home", "web.home");
+
 $router->get("/sobre", "Web:about", "web.about");
 $router->get("/novo-artigo", "Web:showForm", "web.showForm");
 $router->post("/novo-artigo", "Web:register", "web.register");
