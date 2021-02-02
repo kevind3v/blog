@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?= package('@fortawesome/fontawesome-free/css/all.min.css') ?>" />
     <link rel="stylesheet" href="<?= asset("style.min.css") ?>">
     <?= $this->section('style') ?>
+    
 </head>
 
 <body>
@@ -83,6 +84,8 @@
     <script src="<?= package('bootstrap/dist/js/bootstrap.min.js') ?>"></script>
     <script src="<?= package('boxicons/dist/boxicons.js') ?>"></script>
     <script src="<?= asset("scripts.min.js") ?>"></script>
+
+    <?= $this->section('js') ?>
 </body>
 
 </html>

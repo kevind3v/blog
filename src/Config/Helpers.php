@@ -55,3 +55,50 @@ function package(string $path): string
 {
     return url("node_modules/") . path($path);
 }
+
+/**
+ * ------------------
+ * ----- DATE -----
+ * ------------------
+ */
+
+/**
+ * Date Format
+ * @param string $date
+ * @param string $format
+ * @return string
+ */
+function date_fmt(string $date = "now", string $format = "d/m/Y H\hi"): string
+{
+    return (new DateTime($date, new DateTimeZone("America/Sao_Paulo")))->format($format);
+}
+
+/**
+ * Data Br
+ * @param string $date
+ * @return string
+ */
+function date_fmt_br(string $date): string
+{
+    return (new DateTime($date))->format(DATE['br']);
+}
+
+/**
+ * Date for string
+ * @param string $date
+ * @return string
+ */
+function date_str(string $date): string
+{
+    return strftime("%d %b, %Y - %H:%M", strtotime($date));
+}
+
+/**
+ * Date APP
+ * @param string $date
+ * @return string
+ */
+function date_fmt_app(string $date): string
+{
+    return (new DateTime($date))->format(DATE['app']);
+}
