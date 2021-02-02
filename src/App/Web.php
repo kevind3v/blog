@@ -29,6 +29,13 @@ class Web
         ]);
     }
 
+    public function showForm(): void
+    {
+        $this->view->show("form", [
+            "title" => "Novo artigo"
+        ]);
+    }
+
     /**
      * ERROR
      * @param array $data

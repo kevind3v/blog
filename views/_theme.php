@@ -31,10 +31,11 @@
                         <a href="<?= url() ?>" class="nav-link link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= url("/sobre") ?>" class="nav-link link mr-3">Sobre</a>
+                        <a href="<?= url("sobre") ?>" class="nav-link link">Sobre</a>
                     </li>
+                    <?= $this->section('navbar') ?>
                     <li class="nav-item">
-                        <a href="<?= url("entrar") ?>" class="btn btn-red">
+                        <a href="<?= url("novo-artigo") ?>" class="btn btn-red ml-3">
                             <i class="fas fa-plus-square mr-1"></i>Novo Artigo
                         </a>
                     </li>

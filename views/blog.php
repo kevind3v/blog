@@ -2,7 +2,7 @@
 
 <?= $this->start('style'); ?>
 <style>
-    .bg-nav{
+    .bg-nav {
         background: transparent;
     }
 </style>
@@ -17,7 +17,7 @@
         </p>
         </div>
     </article>
-   
+
     <article class="blog-search container">
         <form name="search" class="ml-2 ml-lg-0" action="#" method="get" enctype="multipart/form-data">
             <label class="row blog-form-search align-items-center">
@@ -46,84 +46,9 @@
     </article>
     <article class="container mt-3 text-center">
         <div class="blog_articles row">
-            <article class="pr-3 mt-2 col-12 col-md-6 col-lg-4">
-                <div class="news-item pb-1">
-
-                    <a href="#">
-                        <div class="img" style="background-image: url('https://via.placeholder.com/300x210');"> </div>
-                    </a>
-
-                    <div class="content">
-                        <p class="mt-2 mb-2"><a href="#" class="category">Categoria</a></p>
-
-                        <h5 class="news-title">
-                            <a href="#">Dolore amet esse aute cillum est minim minim.</a>
-                        </h5>
-
-                        <p class="news-subtitle">
-                            <a href="#">Nisi ullamco duis est nulla ipsum Lorem excepteur proident commodo laborum quis occaecat velit cupidatat.</a>
-                        </p>
-
-                        <p class="meta">
-                            <a href="#" class="author">Kevin Santos</a>
-                            <br>
-                            <span style="opacity: 0.5;">20 Dez, 2020 - 14h30</span>
-                        </p>
-                    </div>
-                </div>
-            </article>
-            <article class="pr-3  mt-2  col-12 col-md-6 col-lg-4">
-                <div class="news-item pb-1">
-
-                    <a href="#">
-                        <div class="img" style="background-image: url('https://via.placeholder.com/300x210');"> </div>
-                    </a>
-
-                    <div class="content">
-                        <p class="mt-2 mb-2"><a href="#" class="category">Categoria</a></p>
-
-                        <h5 class="news-title">
-                            <a href="#">Dolore amet esse aute cillum est minim minim.</a>
-                        </h5>
-
-                        <p class="news-subtitle">
-                            <a href="#">Nisi ullamco duis est nulla ipsum Lorem excepteur proident commodo laborum quis occaecat velit cupidatat.</a>
-                        </p>
-
-                        <p class="meta">
-                            <a href="#" class="author">Kevin Santos</a>
-                            <br>
-                            <span style="opacity: 0.5;">20 Dez, 2020 - 14h30</span>
-                        </p>
-                    </div>
-                </div>
-            </article>
-            <article class="pr-3 mt-2  col-12 col-md-6 col-lg-4">
-                <div class="news-item pb-1">
-
-                    <a href="#">
-                        <div class="img" style="background-image: url('https://via.placeholder.com/300x210');"> </div>
-                    </a>
-
-                    <div class="content">
-                        <p class="mt-2 mb-2"><a href="#" class="category">Categoria</a></p>
-
-                        <h5 class="news-title">
-                            <a href="#">Dolore amet esse aute cillum est minim minim.</a>
-                        </h5>
-
-                        <p class="news-subtitle">
-                            <a href="#">Nisi ullamco duis est nulla ipsum Lorem excepteur proident commodo laborum quis occaecat velit cupidatat.</a>
-                        </p>
-
-                        <p class="meta">
-                            <a href="#" class="author">Kevin Santos</a>
-                            <br>
-                            <span style="opacity: 0.5;">20 Dez, 2020 - 14h30</span>
-                        </p>
-                    </div>
-                </div>
-            </article>
+            <?php for ($i = 0; $i < 6; $i++) : ?>
+                <?= $this->insert('card') ?>
+            <?php endfor; ?>
         </div>
     </article>
 </section>

@@ -11,6 +11,7 @@ $router->namespace('Src\App');
 /** Web */
 $router->get("/", "Web:home", "web.home");
 $router->get("/sobre", "Web:about", "web.about");
+$router->get("/novo-artigo", "Web:showForm", "web.showForm");
 
 /** Error */
 $router->group('oops');
