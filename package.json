@@ -14,6 +14,7 @@
     "cropperjs": "^1.5.9",
     "izitoast": "^1.4.0",
     "jquery": "^3.5.1",
+    "jquery-form": "^4.3.0",
     "jquery-mask-plugin": "^1.14.16",
     "popper.js": "^1.14.3"
   }

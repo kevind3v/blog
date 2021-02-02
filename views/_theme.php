@@ -12,12 +12,20 @@
     <link rel="stylesheet" href="<?= package('@fortawesome/fontawesome-free/css/all.min.css') ?>" />
     <link rel="stylesheet" href="<?= asset("style.min.css") ?>">
     <?= $this->section('style') ?>
-    
 </head>
 
-<body>
-    <!-- Header -->
+<body onload="loading()">
 
+    <div id="loading">
+        <div class="load_box">
+            <div class="container text-center mt-5">
+                <img width="100" src="<?= asset('img/svg/loading.svg'); ?>" alt="">
+                <p class="load-p text-white">Aguarde...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header class="header navbar navbar-expand-md navbar-light bg-nav">
         <div class="container">
             <a class="navbar-brand brand" href="">
@@ -64,27 +72,28 @@
                         </ul>
                     </div>
                     <div class="col-6 copyright text-md-right">
-                    <a class="mr-3 no-link" href="https://www.instagram.com/kevind3v/" target="_blank" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="mr-3 no-link" href="https://www.linkedin.com/in/kevinssiqueira/" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="mr-3 no-link" href="https://github.com/kevind3v" target="_blank" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
+                        <a class="mr-3 no-link" href="https://www.instagram.com/kevind3v/" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="mr-3 no-link" href="https://www.linkedin.com/in/kevinssiqueira/" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="mr-3 no-link" href="https://github.com/kevind3v" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </footer>
 
+
     <script src="<?= package('jquery/dist/jquery.min.js') ?>"></script>
     <script src="<?= package('popper.js/dist/popper.min.js') ?>"></script>
     <script src="<?= package('bootstrap/dist/js/bootstrap.min.js') ?>"></script>
     <script src="<?= package('boxicons/dist/boxicons.js') ?>"></script>
+    <script src="<?= package('jquery-form/dist/jquery.form.min.js') ?>"></script>
     <script src="<?= asset("scripts.min.js") ?>"></script>
-
     <?= $this->section('js') ?>
 </body>
 

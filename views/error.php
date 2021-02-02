@@ -1,13 +1,5 @@
 <?= $this->layout('_theme', ["title" => $title]) ?>
 
-<?= $this->start('style'); ?>
-<style>
-    .main-footer .footer-color{
-        background: transparent!important;
-    }
-</style>
-<?= $this->end(); ?>
-
 <section class="error container mt-5 mb-3 text-center">
     <div class="row align-items-start">
         <div class="col-12 col-lg-6 order-2 order-lg-1">

@@ -12,6 +12,9 @@ $router->namespace('Src\App');
 $router->get("/", "Web:home", "web.home");
 $router->get("/sobre", "Web:about", "web.about");
 $router->get("/novo-artigo", "Web:showForm", "web.showForm");
+$router->post("/novo-artigo", "Web:register", "web.register");
+$router->get("/nova-categoria", "Web:showCategory", "web.showCategory");
+$router->post("/nova-categoria", "Web:category", "web.category");
 
 /** Error */
 $router->group('oops');

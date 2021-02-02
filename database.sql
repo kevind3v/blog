@@ -5,12 +5,10 @@ CREATE TABLE `categories` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
     `title` varchar(255) NOT NULL DEFAULT '',
     `uri` varchar(255) NOT NULL DEFAULT '',
-    `description` text,
     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
-LOCK TABLES `categories` WRITE;
 DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -29,4 +27,3 @@ CREATE TABLE `posts` (
     CONSTRAINT `category_id` FOREIGN KEY (`category`) REFERENCES `categories` (`id`) ON DELETE
     SET NULL ON UPDATE NO ACTION
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
-LOCK TABLES `posts` WRITE;

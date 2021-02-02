@@ -20,6 +20,11 @@
   --red-800: #991b1b;
   --red-900: #7f1d1d;
 
+  --green: #36ba9b;
+  --blue: #39aed9;
+  --yellow: #f5b946;
+  --red: #d94352;
+
   --gradient-red: linear-gradient(to right, #f87171, #fa4d4d);
 
   --font-family: 'Nunito', Helvetica, sans-serif;
@@ -36,6 +41,29 @@
   background: #dad7d7;
   border-radius: 50px;
 }
+/*DEFAULT LOAD*/
+#loading {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+  background: var(--red-50);
+  z-index: 4;
+}
+
+.load_box {
+  margin: auto;
+  text-align: center;
+}
+
+.load_box .load-p {
+  color: #000 !important;
+  font-weight: 900;
+}
+
 /*----------------------------*/
 /*---------- DEFAULT ---------*/
 /*----------------------------*/
@@ -45,13 +73,14 @@
   text-transform: uppercase;
   transition: all 0.4s;
   font-weight: 800;
+  border-radius: 10px;
 }
 .btn-red {
   color: #fff !important;
-  background: var(--red-700);
+  background: var(--red);
 }
 .btn-red:hover {
-  background: var(--red-300);
+  background: var(--red-700);
 }
 .btn-gradient {
   color: #fff;
@@ -100,11 +129,11 @@
   min-height: 65px;
   transition: all 0.4s;
   background: var(--gradient-red);
-  position: fixed !important;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  z-index: 99999;
+  z-index: 1;
 }
 .sticky {
   min-height: auto;
@@ -194,16 +223,17 @@
   border: 0 none;
   outline: 0;
 }
-.blog-content .empty_content {
+.empty_content {
   padding: 50px;
 }
-.blog-content .empty_content h3 {
+.empty_content h3,
+h5 {
   font-weight: 800;
 }
-.blog-content .empty_content p {
+.empty_content p {
   font-weight: 600;
 }
-.blog-content .empty_content img {
+.empty_content img {
   width: 350px;
   max-width: 100%;
 }
@@ -268,7 +298,7 @@
 /*----------- FOOTER ----------*/
 /*-----------------------------*/
 .main-footer .footer-color {
-  background-color: var(--red-50);
+  background-color: transparent !important;
 }
 
 .copyright {
@@ -399,7 +429,7 @@
 .faq .content .collapse-content {
   margin-top: 15px;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15) !important;
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
@@ -432,6 +462,7 @@
 .form-content form input,
 .form-content select,
 .form-content textarea,
+.select,
 .form-content .tox-tinymce {
   font-size: 0.92em;
   border-radius: 8px !important;
@@ -442,7 +473,8 @@
 .form-content form input {
   padding: 20px 10px;
 }
-.form-content form select {
+.form-content form select,
+.select {
   height: auto;
   padding: 10px;
 }
@@ -478,4 +510,7 @@
 }
 .form-content .tox-tinymce .tox-toolbar__group {
   border: 0 !important;
+}
+.badge-category {
+  font-size: 1em;
 }

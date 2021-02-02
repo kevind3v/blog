@@ -102,3 +102,34 @@ function date_fmt_app(string $date): string
 {
     return (new DateTime($date))->format(DATE['app']);
 }
+
+/**
+ * ------------------
+ * ----- STRING -----
+ * ------------------
+ */
+
+/**
+ *
+ * Transformar uma string em url
+ * @param string $string
+ * @return string
+ */
+function str_slug(string $string): string
+{
+    $string = filter_var(mb_strtolower($string), FILTER_SANITIZE_STRIPPED);
+    $formats = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿRr"!@#$%&*()_-+={[}]/?;:.,\\\'<>°ºª';
+    $replace = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr                                 ';
+
+    //Substituir espaços em traços
+    $slug = str_replace(
+        ["-----", "----", "---", "--"],
+        "-",
+        str_replace(
+            " ",
+            "-",
+            trim(strtr(utf8_decode($string), utf8_decode($formats), $replace))
+        )
+    );
+    return $slug;
+}
