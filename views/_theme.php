@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="<?= package('boxicons/css/boxicons.min.css') ?>" />
     <link rel="stylesheet" href="<?= package('@fortawesome/fontawesome-free/css/all.min.css') ?>" />
     <link rel="stylesheet" href="<?= asset("style.min.css") ?>">
+    <?= $this->section('style') ?>
 </head>
 
 <body>
     <!-- Header -->
 
-    <header class="header navbar navbar-expand-md navbar-light bg-white">
+    <header class="header navbar navbar-expand-md navbar-light bg-nav">
         <div class="container">
             <a class="navbar-brand brand" href="">
                 <i class="fas fa-blog"></i>
@@ -52,7 +53,7 @@
         <section class="container-fluid text-center footer-color">
             <div class="container footer-content">
                 <div class="row justify-content-between">
-                    <div class="col-12 col-lg-6 copyright align-self-center">
+                    <div class="col-6 copyright">
                         <ul class="list-style-none mb-0 d-flex flex-wrap">
                             <li class="mr-3">
                                 &copy; <?= date('Y') ?>
@@ -60,7 +61,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-12 col-lg-6 copyright text-right">
+                    <div class="col-6 copyright text-md-right">
                     <a class="mr-3 no-link" href="https://www.instagram.com/kevind3v/" target="_blank" title="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>

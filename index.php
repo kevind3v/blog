@@ -10,6 +10,7 @@ $router->namespace('Src\App');
 
 /** Web */
 $router->get("/", "Web:home", "web.home");
+$router->get("/sobre", "Web:about", "web.about");
 
 /** Error */
 $router->group('oops');

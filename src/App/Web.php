@@ -16,9 +16,17 @@ class Web
         $this->view->data(["router" => $router]);
     }
 
-    public function home()
+    /** Home Controller */
+    public function home(): void
     {
         $this->view->show("blog", []);
+    }
+
+    public function about(): void
+    {
+        $this->view->show("about", [
+            "title" => "Sobre nós"
+        ]);
     }
 
     /**
@@ -28,5 +36,15 @@ class Web
      */
     public function error(array $data): void
     {
+        $dataError = new \stdClass();
+        $dataError->code = $data['code'];
+        $dataError->title = "Oops!! Conteúdo indisponível";
+        $dataError->message = "O conteúdo que você tentou acessar não existe, 
+        está indisponível no momento ou foi removido :(";
+
+        $this->view->show("error", [
+            "title" => $data['code'],
+            "error" => $dataError
+        ]);
     }
 }

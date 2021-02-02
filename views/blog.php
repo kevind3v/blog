@@ -1,5 +1,13 @@
 <?= $this->layout('_theme') ?>
 
+<?= $this->start('style'); ?>
+<style>
+    .bg-nav{
+        background: transparent;
+    }
+</style>
+<?= $this->end(); ?>
+
 <div class="bg-home"></div>
 <section class="blog pb-5">
     <article class="blog-header container text-center">

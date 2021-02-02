@@ -25,6 +25,14 @@ function path(string $path): string
 }
 
 /**
+ * @return string
+ */
+function url_back(): string
+{
+    return ($_SERVER['HTTP_REFERER'] ?? url());
+}
+
+/**
  * --------------------
  * ------ ASSETS ------
  * --------------------
