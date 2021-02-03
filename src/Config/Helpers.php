@@ -6,6 +6,8 @@
  * ---------------------
  */
 
+use Src\Helpers\Session;
+
 /**
  * @param string $path
  * @return string
@@ -48,6 +50,17 @@ function redirect(string $url): void
     }
 }
 
+function alert()
+{
+    $session = new Session();
+    if ($flash = $session->flash()) {
+        $str = "Swal.fire({icon: '{$flash->type}',title: 'Ops...',text: '{$flash->message}',})";
+        $str .= ".then((result) => {if (result.isConfirmed) { ";
+        $str .= !empty($flash->url) ? "window.location.href = {$flash->url}" : "" . "}});";
+        return $str;
+    }
+    return null;
+}
 
 
 /**

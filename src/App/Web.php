@@ -67,10 +67,14 @@ class Web
     /** Show Form Controller */
     public function showForm(): void
     {
+        if (!(new Category())->find()->count()) {
+            $this->message->flash("Você precisa cadastrar categoria primeiro");
+            redirect(url("nova-categoria"));
+        }
         $this->view->show("form", [
             "title" => "Novo artigo",
             "categories" => (new Category())->order("title ASC")->find()->fetch(true)
-        ]);
+            ]);
     }
 
     /** Register Controller */
@@ -97,6 +101,7 @@ class Web
             if ($post->save()) {
                 $response['message'] = "Artigo cadastrado com sucesso";
                 $response['error'] = false;
+                $response['redirect'] = url();
                 echo json_encode($response);
                 return;
             } else {

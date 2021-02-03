@@ -16,6 +16,8 @@
     "jquery": "^3.5.1",
     "jquery-form": "^4.3.0",
     "jquery-mask-plugin": "^1.14.16",
-    "popper.js": "^1.14.3"
+    "jquery-ui": "^1.12.1",
+    "popper.js": "^1.14.3",
+    "sweetalert2": "^10.14.0"
   }
 }

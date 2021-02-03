@@ -24,6 +24,15 @@ $(function () {
           flash.html(response.message).fadeIn(100).effect('bounce', 300);
         } else {
           flash.fadeOut(100);
+          Swal.fire({
+            icon: 'success',
+            title: 'Aee!!',
+            text: response.message,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
         }
       },
       complete: function () {

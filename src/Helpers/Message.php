@@ -6,8 +6,6 @@ class Message
 {
     private $text;
     private $type;
-    private $before;
-    private $after;
 
     public function __toString(): string
     {
@@ -28,18 +26,6 @@ class Message
     public function getType(): string
     {
         return $this->type;
-    }
-
-    public function before(string $text): Message
-    {
-        $this->before = $text;
-        return $this;
-    }
-
-    public function after(string $text): Message
-    {
-        $this->after = $text;
-        return $this;
     }
 
     public function info(string $message): Message
@@ -68,8 +54,6 @@ class Message
     }
 
     /**
-     * Montar a mensagem com HTML/CSS
-     *
      * @return string
      */
     public function render(): string
@@ -94,6 +78,21 @@ class Message
                 return '<i class="fas fa-exclamation-triangle mr-1"></i>';
                 break;
         }
+    }
+
+    /**
+     * @param string $message
+     * @param string $type
+     * @param string $redirect
+     * @return Session
+     */
+    public function flash(string $message, string $type = "error", string $redirect = ""): Session
+    {
+        return (new Session())->set("flash", [
+            "message" => $message,
+            "type" => $type,
+            "url" => $redirect
+        ]);
     }
 
     /**

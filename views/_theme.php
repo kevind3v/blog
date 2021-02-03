@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?= package('boxicons/css/boxicons.min.css') ?>" />
     <link rel="stylesheet" href="<?= package('@fortawesome/fontawesome-free/css/all.min.css') ?>" />
     <link rel="stylesheet" href="<?= package("/cropperjs/dist/cropper.min.css"); ?>" />
+    <link rel="stylesheet" href="<?= package("/sweetalert2/dist/sweetalert2.min.css"); ?>" />
     <link rel="stylesheet" href="<?= asset("style.min.css") ?>">
     <?= $this->section('style') ?>
 </head>
@@ -95,8 +96,13 @@
     <script src="<?= package("cropperjs/dist/cropper.min.js"); ?>"></script>
     <script src="<?= package('boxicons/dist/boxicons.js') ?>"></script>
     <script src="<?= package('jquery-form/dist/jquery.form.min.js') ?>"></script>
+    <script src="<?= package('sweetalert2/dist/sweetalert2.min.js') ?>"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="<?= asset("scripts.min.js") ?>"></script>
     <?= $this->section('js') ?>
+    <script>
+        <?= alert() ?>
+    </script>
 </body>
 
 </html>
