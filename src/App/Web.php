@@ -33,13 +33,27 @@ class Web
 
         $this->view->show("blog", [
             "blog" => $blog
-            ->order("id DESC")
-            ->limit($pager->limit())
+                ->order("id DESC")
+                ->limit($pager->limit())
                 ->offset($pager->offset())
                 ->fetch(true),
             "paginator" => $pager->render()
         ]);
-        var_dump($data['page']);
+    }
+
+    /** POST Controller */
+    public function showPost(array $data): void
+    {
+        $data = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
+        $post = (new Post())->findByUri($data);
+
+        if (!$post) {
+            redirect("/404");
+        }
+
+        $this->view->show("post", [
+            "post" => (new Post())->findByUri($data)
+        ]);
     }
 
     /** About Controller */
@@ -101,7 +115,7 @@ class Web
     }
 
     /** @param array $data */
-    public function category(array $data): void
+    public function registerCategory(array $data): void
     {
         if (empty($data['category'])) {
             $json['error'] = true;

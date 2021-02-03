@@ -1,5 +1,6 @@
 <?= $this->layout('_theme') ?>
 
+
 <div class="bg-home"></div>
 <section class="blog pb-5">
     <article class="blog-header container text-center">
@@ -42,7 +43,7 @@
         <article class="container mt-3 text-center">
             <div class="blog_articles row">
                 <?php foreach ($blog as $post) : ?>
-                    <?php $this->insert("card", ["post" => $post]); ?>
+                    <?php $this->insert("card", ["post" => $post, "router" => $router]); ?>
                 <?php endforeach; ?>
             </div>
             <?= $paginator ?>

@@ -33,6 +33,24 @@ function url_back(): string
 }
 
 /**
+ * @param string $url
+ */
+function redirect(string $url): void
+{
+    if (filter_var($url, FILTER_VALIDATE_URL)) {
+        header("Location: {$url}");
+        exit;
+    }
+    if (filter_input(INPUT_GET, "route", FILTER_DEFAULT) != $url) {
+        $location = url($url);
+        header("Location: {$location}");
+        exit;
+    }
+}
+
+
+
+/**
  * --------------------
  * ------ ASSETS ------
  * --------------------
@@ -88,9 +106,9 @@ function date_fmt_br(string $date): string
  * @param string $date
  * @return string
  */
-function date_str(string $date): string
+function date_str(string $date, string $format = "%d %b, %Y - %H:%M"): string
 {
-    return strftime("%d %b, %Y - %H:%M", strtotime($date));
+    return strftime($format, strtotime($date));
 }
 
 /**
@@ -141,7 +159,7 @@ function str_slug(string $string): string
  * @param string $pointer
  * @return string
  */
-function strwords(string $string, int $limit, string $pointer = "..."): string
+function str_words(string $string, int $limit, string $pointer = "..."): string
 {
     $string = trim(
         filter_var($string, FILTER_SANITIZE_SPECIAL_CHARS)
@@ -164,7 +182,7 @@ function strwords(string $string, int $limit, string $pointer = "..."): string
  * @param string $pointer
  * @return string
  */
-function strchars(string $string, int $limit, string $pointer = "..."): string
+function str_chars(string $string, int $limit, string $pointer = "..."): string
 {
     $string = trim(
         filter_var($string, FILTER_SANITIZE_SPECIAL_CHARS)

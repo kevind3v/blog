@@ -29,7 +29,7 @@
     <!-- Header -->
     <header class="header navbar navbar-expand-md navbar-light bg-nav">
         <div class="container">
-            <a class="navbar-brand brand" href="">
+            <a class="navbar-brand brand" href="<?= url() ?>">
                 <i class="fas fa-blog"></i>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navMobile" aria-expanded="false" aria-label="Toggle navigation">
