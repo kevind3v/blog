@@ -45,7 +45,6 @@
   text-decoration: none !important;
 }
 .cards .card .card-content {
-  z-index: -1;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15) !important;
 }
 .cards .card .card-top .img {
@@ -54,7 +53,6 @@
 .cards .card .card-top .img:hover {
   border-radius: 25px !important;
 }
-
 .cards .card .card-content,
 .cards .card .card-top .img {
   padding: 0;
@@ -68,11 +66,16 @@
   max-height: 200px;
   width: 100%;
   object-fit: cover;
+  z-index: -1;
 }
-.cards .card .card-content a .title {
+.cards .card .card-content .category {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 700;
+}
+.cards .card .card-content .title {
   font-weight: 800;
   text-transform: uppercase;
-  margin: 0;
   color: #000;
 }
 .cards .card .card-content .date {
@@ -103,6 +106,29 @@
 .cards .card .card-footer img {
   width: 20px;
   color: #aaa;
+}
+.categories header h5 {
+  font-weight: 600;
+}
+.categories header b {
+  font-weight: 800;
+}
+.badge-red {
+  position: absolute;
+  z-index: 4;
+  top: 189px;
+  color: #fff !important;
+  background: var(--red);
+}
+.badge-red:hover {
+  background: var(--red-800);
+}
+.badge-category,
+.count-category {
+  font-size: 0.9em;
+}
+.count-category {
+  font-weight: 400;
 }
 /*----------------------------------*/
 /*---------- CONTENT POST ----------*/

@@ -207,12 +207,7 @@ h5 {
 .form-content form .file:hover {
   background-color: var(--red-300);
 }
-.form-content .tox-tinymce {
-  border: 1px solid rgba(0, 0, 0, 0.2) !important;
-}
-.form-content .tox-tinymce .tox-toolbar__group {
-  border: 0 !important;
-}
+
 
 /*----------------------------------*/
 /*----------- IMAGE MODAL ----------*/

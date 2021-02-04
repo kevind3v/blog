@@ -45,7 +45,9 @@
           <li class="nav-item">
             <a href="<?= url("sobre") ?>" class="nav-link link">Sobre</a>
           </li>
-          <?= $this->section('navbar') ?>
+          <li class="nav-item">
+            <a href="<?= url("nova-categoria") ?>" class="nav-link link">Nova Categoria</a>
+          </li>
           <li class="nav-item">
             <a href="<?= url("novo-artigo") ?>" class="btn btn-border ml-md-3">
               <i class="fas fa-plus mr-1"></i>Novo Artigo

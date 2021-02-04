@@ -1,6 +1,6 @@
 <?= $this->layout('_theme', ["title" => $title]) ?>
 
-<section>
+<section class="category">
     <article class="bg-header">
         <div class="container py-2">
             <h1 class="pt-2">Cadastro de categoria</h1>
@@ -11,7 +11,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 col-lg-6 mb-3">
-                <div class="form shadow px-4 py-4">
+                <div class="form shadow p-4">
                     <header class="mb-2">
                         <h4 class="__title mb-0">Nova <span class="text-danger">Categoria</span></h4>
                         <p class="__subtitle">Preencha o campo abaixo</p>
@@ -52,11 +52,3 @@
             </div>
         </div>
 </section>
-
-
-<!-- LINKS NAVBAR -->
-<?= $this->start('navbar') ?>
-<li class="nav-item">
-    <a href="<?= url("nova-categoria") ?>" class="nav-link link">Nova Categoria</a>
-</li>
-<?= $this->end() ?>

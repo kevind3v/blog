@@ -20,7 +20,7 @@
                     <span class="current">Todos</span>
                 </div>
                 <div class="col-12 col-md-4 order-1 order-md-2 my-3 my-md-0">
-                    <form class="search-box" action="#" method="get" enctype="multipart/form-data">
+                    <form class="search-box form-content" action="#" method="get" enctype="multipart/form-data">
                         <input type="text" required placeholder="Buscar artigo...">
                         <button class="btn-search">
                             <i class='bx bx-search-alt'></i>
@@ -52,7 +52,7 @@
         <article class="cards container mt-3">
             <div class="row">
                 <?php foreach ($blog as $post) : ?>
-                    <?php $this->insert("card", ["post" => $post, "router" => $router]); ?>
+                    <?= $this->insert("card", ["post" => $post, "router" => $router]); ?>
                 <?php endforeach; ?>
             </div>
             <?= $paginator ?>
