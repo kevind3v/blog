@@ -1,7 +1,7 @@
 <?= $this->layout('_theme') ?>
 
 <section class="section-home">
-    <article class="home-header">
+    <article class="bg-header">
         <div class="container py-2">
             <h1 class="pt-2">Blog</h1>
             <p> Seja bem-vindo(a) e fique a vontade!! </p>
@@ -34,18 +34,18 @@
     <?php if (empty($blog) && !empty($search)) : ?>
         <article class="empty container text-center mt-3">
             <div class="empty_content">
-                <img class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
-                <h3>Vazio :/</h3>
-                <p>Busca por <b style="opacity: 0.5;">PHP</b> não retornou nada :(</p>
-                <a href="" title="Blog" class="btn btn-gradient py-2 px-5">Voltar</a>
+                <img data-aos="fade-up" class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
+                <h3 data-aos="fade-right">Vazio :/</h3>
+                <p data-aos="fade-left">Busca por <b style="opacity: 0.5;">PHP</b> não retornou nada :(</p>
+                <a data-aos="fade-down" href="" title="Blog" class="btn btn-gradient py-2 px-5">Voltar</a>
             </div>
         </article>
     <?php elseif (empty($blog)) : ?>
         <article class="empty container text-center mt-3">
             <div class="empty_content">
-                <img class="img-fluid mb-4" src="<?= asset('img/svg/under.svg') ?>" alt="Sem Artigos">
-                <h3>Sem artigos!</h3>
-                <p>Ainda não possuímos artigos publicados :(</p>
+                <img data-aos="fade-down" class="img-fluid mb-4" src="<?= asset('img/svg/under.svg') ?>" alt="Sem Artigos">
+                <h3 data-aos="fade-left">Sem artigos!</h3>
+                <p data-aos="fade-right">Ainda não possuímos artigos publicados :(</p>
             </div>
         </article>
     <?php else : ?>

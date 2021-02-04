@@ -9,6 +9,7 @@
   "keywords": [],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.1",
+    "aos": "^2.3.4",
     "bootstrap": "^4.5.0",
     "boxicons": "^2.0.7",
     "cropperjs": "^1.5.9",

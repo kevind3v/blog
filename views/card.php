@@ -1,8 +1,8 @@
 <article class="col-12 col-md-6 col-lg-4">
-    <div class="card px-1 mt-3">
+    <div class="card px-1 mt-3" data-aos="zoom-in-up">
         <header class="card-top">
             <a href=''>
-                <img class="img-fluid img" src="<?= url('/uploads/1612444711.png') ?>" alt="">
+                <img class="img-fluid img" src="<?= asset('img/card.png') ?>" alt="">
             </a>
         </header>
         <div class="card-content">

@@ -229,7 +229,7 @@ function str_chars(string $string, int $limit, string $pointer = "..."): string
  */
 function image(string $image, string $old = null): ?string
 {
-    if (!empty($image) && preg_match("/data:image\\/png;base64,/", $image)) {
+    if (!empty($image) && preg_match("data:image", $image)) {
         $first_array = explode(";", $image);
         $array = explode(",", $first_array[1]);
         if ($data = base64_decode($array[1], true)) {
