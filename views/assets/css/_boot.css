@@ -1,0 +1,48 @@
+:root {
+  --font-small: 0.875em;
+  --font-normal: 1em;
+  --font-medium: 1.3em;
+  --font-large: 1.6em;
+
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+
+  --green: #36ba9b;
+  --green-hover: #218f75;
+  --blue: #39aed9;
+  --yellow: #f5b946;
+
+  --gradient-red: linear-gradient(to right, #f87171, #fa4d4d);
+  --gradient-hover-red: linear-gradient(to right, #fa4d4d, #f87171);
+
+  --font-family: 'Nunito', Helvetica, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+  border-radius: 50px;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 500px;
+}
+::-webkit-scrollbar-thumb {
+  background: #dad7d7;
+  border-radius: 50px;
+}
+.margin-main {
+  height: 70px;
+}

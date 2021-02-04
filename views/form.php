@@ -51,7 +51,7 @@
                         <label for="content">Conteúdo</label>
                         <textarea placeholder="Digite aqui..." class="form-control" id="content" rows="5" name="content"></textarea>
                     </div>
-                    <button class="btn btn-red py-2 btn-block" type="submit">Salvar artigo</button>
+                    <button class="btn btn-default py-2 btn-block" type="submit">Salvar artigo</button>
                 </form>
             </div>
             <div class="col-12 d-md-none d-lg-block col-lg-1"></div>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="text-right mt-2">
                     <span class="close-modal" data-dismiss="modal">Cancelar</span>
-                    <button type="button" id="crop" class="btn btn-red ml-2 px-5">Cortar Imagem</button>
+                    <button type="button" id="crop" class="btn btn-default ml-2 px-5">Cortar Imagem</button>
                 </div>
             </div>
         </div>

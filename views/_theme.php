@@ -28,7 +28,7 @@
     </div>
 
     <!-- Header -->
-    <header class="header navbar navbar-expand-md navbar-light bg-nav">
+    <header class="header navbar navbar-expand-md navbar-light py-md-2">
         <div class="container">
             <a class="navbar-brand brand" href="<?= url() ?>">
                 <i class="fas fa-blog"></i>
@@ -46,8 +46,8 @@
                     </li>
                     <?= $this->section('navbar') ?>
                     <li class="nav-item">
-                        <a href="<?= url("novo-artigo") ?>" class="btn btn-red ml-3">
-                            <i class="fas fa-plus-square mr-1"></i>Novo Artigo
+                        <a href="<?= url("novo-artigo") ?>" class="btn btn-border ml-md-3">
+                            <i class="fas fa-plus mr-1"></i>Novo Artigo
                         </a>
                     </li>
                 </ul>
@@ -56,13 +56,33 @@
     </header>
 
     <main>
-        <div class="m-header"></div>
+        <div class="margin-main"></div>
         <?= $this->section('content') ?>
     </main>
 
     <!-- Footer -->
-    <footer class="main-footer">
-        <section class="container-fluid text-center footer-color">
+    <footer class="mt-4">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-12 col-md-6 copyright order-2 order-md-1">
+                    &copy; <?= date('Y') ?>
+                    <a href="#">blog</a>.
+                    By <a target="_blank" href="https://www.linkedin.com/in/kevinssiqueira/">kevind3v</a>
+                </div>
+                <div class="col-12 col-md-6 text-center links order-1 order-md-2">
+                    <a class="mr-3 no-link" href="https://www.instagram.com/kevind3v/" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="mr-3 no-link" href="https://www.linkedin.com/in/kevinssiqueira/" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="no-link" href="https://github.com/kevind3v" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- <section class="container-fluid text-center footer-color">
             <div class="container footer-content">
                 <div class="row justify-content-between">
                     <div class="col-6 copyright">
@@ -73,20 +93,10 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-6 copyright text-md-right">
-                        <a class="mr-3 no-link" href="https://www.instagram.com/kevind3v/" target="_blank" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="mr-3 no-link" href="https://www.linkedin.com/in/kevinssiqueira/" target="_blank" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="mr-3 no-link" href="https://github.com/kevind3v" target="_blank" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
+                    
                 </div>
             </div>
-        </section>
+        </section> -->
     </footer>
 
 

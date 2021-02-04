@@ -33,10 +33,71 @@
   color: #fff;
   background: var(--red-400);
 }
+/*-----------------------------*/
+/*----------- CARDS ----------*/
+/*-----------------------------*/
+.cards .card {
+  border: none;
+  background: transparent !important;
+  transition: all 0.4s;
+}
+.cards .card a {
+  text-decoration: none !important;
+}
+.cards .card .card-content,
+.cards .card .card-top .img {
+  padding: 0;
+  text-align: left;
+  border-radius: 15px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15) !important;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+}
+.cards .card .card-top .img {
+  height: 200px;
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.cards .card .card-content a .title {
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+  color: #000;
+}
+.cards .card .card-content .date {
+  color: #aaa;
+  font-size: 11px;
+  font-weight: 700;
+}
+.cards .card .card-content .subtitle {
+  font-size: var(--font-small);
+  color: #979797;
+}
+.cards .card .card-content .subtitle a {
+  color: var(--red);
+  font-weight: 700;
+}
+.cards .card .card-content .subtitle a:hover {
+  color: var(--red-700);
+}
+.cards .card .card-footer {
+  background: transparent;
+  border: none;
+  padding-top: 0;
+}
+.cards .card-footer .views .count-views {
+  padding-top: 6px;
+  font-size: 11px;
+}
+.cards .card .card-footer img {
+  width: 20px;
+  color: #aaa;
+}
 /*----------------------------------*/
 /*---------- CONTENT POST ----------*/
 /*----------------------------------*/
-.post .content :first-child {
+/* .post .content :first-child {
   margin-top: 0;
 }
 
@@ -100,4 +161,4 @@
   background: #eeeeee;
   margin: 20px 0;
   overflow-x: auto;
-}
+} */

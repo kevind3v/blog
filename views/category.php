@@ -19,7 +19,7 @@
                             </div>
 
                         </div>
-                        <button class="btn btn-red py-2 btn-block" type="submit">Salvar Categoria</button>
+                        <button class="btn btn-default py-2 btn-block" type="submit">Salvar Categoria</button>
                     </form>
                 </div>
             </div>
