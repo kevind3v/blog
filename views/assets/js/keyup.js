@@ -28,7 +28,7 @@ $(() => {
         $('.card-subtitle').html(data);
       }
     } else {
-      $('.card-subtitle').html('Subtítulo');
+      $('.card-subtitle').html('subtítulo');
     }
   });
 });

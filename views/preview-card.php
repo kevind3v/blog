@@ -1,24 +1,24 @@
-<article class="col-12 col-md-6 col-lg-4">
+<article class="cards">
     <div class="card mt-3" data-aos="zoom-in-up">
         <header class="card-top">
-            <a href="<?= $router->route("web.post", ["uri" => $post->uri]) ?>">
-                <img class="img-fluid img" src="<?= url("uploads/{$post->cover}") ?>" alt="<?= $post->uri ?>">
+            <a href=''>
+                <img class="img-fluid img" id="preview-img" src="<?= asset('img/card.png') ?>" alt="">
             </a>
         </header>
         <div class="card-content">
             <div class="body container mt-2 ml-2">
                 <header>
                     <a href="#" class="badge badge-category badge-red">
-                        <span><?= $post->categories()->title ?></span>
+                        <span class="card-category">Categoria</span>
                     </a>
-                    <a href="<?= $router->route("web.post", ["uri" => $post->uri]) ?>">
-                        <h6 class="title mb-0"><?= $post->title ?></h6>
+                    <a href="#">
+                        <h6 class="title mb-0 card-title">Título</h6>
                     </a>
-                    <p class="date"><?= date_str($post->created_at) ?></p>
+                    <p class="date"><?= date_str("now") ?></p>
                 </header>
                 <p class="subtitle">
-                    <?= str_chars("{$post->subtitle}", 120) ?>
-                    <a href="<?= $router->route("web.post", ["uri" => $post->uri]) ?>">Saiba Mais</a>
+                    <span class="card-subtitle">subtítulo</span>
+                    <a href="#">Saiba Mais</a>
                 </p>
             </div>
             <div class="card-footer">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="views row mr-4 pr-1">
                         <img src="<?= asset('img/svg/viewer.svg') ?>" alt="">
-                        <span class="count-views pl-1"><?= $post->views ?></span>
+                        <span class="count-views pl-1">0</span>
                     </div>
                 </div>
             </div>

@@ -23,7 +23,11 @@ class Web
         $this->message = new Message();
     }
 
-    /** Home Controller */
+    /**
+     * Display home page
+     *
+     * @param array|null $data
+     */
     public function home(?array $data): void
     {
         $blog = (new Post())->find();
@@ -41,22 +45,7 @@ class Web
         ]);
     }
 
-    /** POST Controller */
-    public function showPost(array $data): void
-    {
-        $data = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
-        $post = (new Post())->findByUri($data);
-
-        if (!$post) {
-            redirect("/404");
-        }
-
-        $this->view->show("post", [
-            "post" => (new Post())->findByUri($data)
-        ]);
-    }
-
-    /** About Controller */
+    /** Display about page */
     public function about(): void
     {
         $this->view->show("about", [
@@ -64,54 +53,8 @@ class Web
         ]);
     }
 
-    /** Show Form Controller */
-    public function showForm(): void
-    {
-        if (!(new Category())->find()->count()) {
-            $this->message->flash("Você precisa cadastrar categoria primeiro");
-            redirect(url("nova-categoria"));
-        }
-        $this->view->show("form", [
-            "title" => "Novo artigo",
-            "categories" => (new Category())->order("title ASC")->find()->fetch(true)
-            ]);
-    }
-
-    /** Register Controller */
-    public function register(array $data): void
-    {
-        if (in_array("", $data) || $data['category'] == "#") {
-            $json['error'] = true;
-            $json['message'] = $this->message->warning(
-                "Informe o campo abaixo!!"
-            )->render();
-            echo json_encode($json);
-            return;
-        }
-
-        if ($image = image($data['image'])) {
-            $post = new Post();
-            $post->category = $data['category'];
-            $post->title = $data['title'];
-            $post->uri = str_slug($data['title']);
-            $post->subtitle = $data['subtitle'];
-            $post->content = $data['content'];
-            $post->cover = $image;
-
-            if ($post->save()) {
-                $response['message'] = "Artigo cadastrado com sucesso";
-                $response['error'] = false;
-                $response['redirect'] = url();
-                echo json_encode($response);
-                return;
-            } else {
-                removeImage($image);
-            }
-        }
-    }
-
-    /** Show Category Controller */
-    public function showCategory(): void
+    /** Display categories page */
+    public function category(): void
     {
         $this->view->show("category", [
             "title" => "Nova categoria",
@@ -119,7 +62,11 @@ class Web
         ]);
     }
 
-    /** @param array $data */
+    /**
+     * Register Category
+     *
+     * @param array $data
+     */
     public function registerCategory(array $data): void
     {
         if (empty($data['category'])) {
@@ -130,11 +77,8 @@ class Web
             echo json_encode($json);
             return;
         }
-
         $dataCategory = filter_var($data['category'], FILTER_SANITIZE_STRIPPED);
-
         $category = new Category();
-
         if ($category->check($dataCategory)) {
             $json['error'] = true;
             $json['message'] = $this->message->warning(
@@ -143,7 +87,6 @@ class Web
             echo json_encode($json);
             return;
         }
-
         $category->title = $dataCategory;
         $category->uri = str_slug($dataCategory);
         if ($category->save()) {
@@ -155,9 +98,82 @@ class Web
                 "Não foi possível cadastrar {$dataCategory}"
             )->render();
         }
-
         echo json_encode($json);
         return;
+    }
+
+    /** Display form page*/
+    public function form(): void
+    {
+        if (!(new Category())->find()->count()) {
+            $this->message->flash("Você precisa cadastrar categoria primeiro");
+            redirect(url("nova-categoria"));
+        }
+        $this->view->show("form", [
+            "title" => "Novo artigo",
+            "categories" => (new Category())->order("title ASC")->find()->fetch(true)
+        ]);
+    }
+
+    /**
+     * Register post
+     *
+     * @param array $data
+     */
+    public function registerPost(array $data): void
+    {
+        if (in_array("", $data) || $data['category'] == "#") {
+            $json['error'] = true;
+            $json['message'] = $this->message->warning(
+                "Informe o campo abaixo!!"
+            )->render();
+            echo json_encode($json);
+            return;
+        }
+        if ($image = image($data['image'])) {
+            $post = new Post();
+            $post->category = $data['category'];
+            $post->title = $data['title'];
+            $post->uri = str_slug($data['title']);
+            $post->subtitle = $data['subtitle'];
+            $post->content = $data['content'];
+            $post->cover = $image;
+
+            if ($post->save()) {
+                $response['redirect'] = url();
+                echo json_encode($response);
+                return;
+            } else {
+                removeImage($image);
+            }
+        }
+        $json['error'] = true;
+        $json['message'] = $this->message->warning(
+            "Tivemos um problema!!"
+        )->render();
+        echo json_encode($json);
+        return;
+    }
+
+
+    /**
+     * Display post details
+     *
+     * @param array $data
+     * @return void
+     */
+    public function blogPost(array $data): void
+    {
+        $data = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
+        $post = (new Post())->findByUri($data);
+        if (!$post) {
+            redirect("/404");
+        }
+        $post->views += 1;
+        $post->save();
+        $this->view->show("post", [
+            "post" => (new Post())->findByUri($data)
+        ]);
     }
 
     /**
