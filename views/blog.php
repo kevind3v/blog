@@ -30,7 +30,9 @@
                 <div class="col-12 text-left order-2 collapse" id="showCategories">
                     <?php if (!empty($categories)) : ?>
                         <?php foreach ($categories as $value) : ?>
-                            <a href="#" data-aos="fade-down" class="badge py-1 my-1 mr-1 badge-category badge-danger"><?= $value->title ?></a>
+                            <a href="<?= $router->route("web.by.category", ["category" => $value->uri]) ?>" data-aos="fade-down" class="badge py-1 my-1 mr-1 badge-category badge-danger">
+                                <?= $value->title ?>
+                            </a>
                         <?php endforeach; ?>
                     <?php else : ?>
                         <article class="empty_content">

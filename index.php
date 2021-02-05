@@ -25,6 +25,8 @@ $router->post("/nova-categoria", "Web:registerCategory", "web.register.category"
 /** Search */
 $router->post("/buscar", "Web:search", "web.search");
 $router->get("/buscar/{params}/{page}", "Web:search", "web.getSearch");
+$router->get("/c/{category}", "Web:searchCategory", "web.by.category");
+$router->get("/c/{category}/{page}", "Web:searchCategory", "web.page.by.Category");
 
 /** Error */
 $router->group('oops');

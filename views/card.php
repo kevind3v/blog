@@ -8,7 +8,7 @@
         <div class="card-content">
             <div class="body container mt-2 ml-2">
                 <header>
-                    <a href="#" class="badge badge-category badge-red">
+                    <a href="<?= $router->route("web.by.category", ["category" => $post->categories()->uri]) ?>" class="badge badge-category badge-red">
                         <span><?= $post->categories()->title ?></span>
                     </a>
                     <a href="<?= $router->route("web.post", ["uri" => $post->uri]) ?>">

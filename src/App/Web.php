@@ -199,6 +199,42 @@ class Web
     }
 
     /**
+     * Search post by category
+     *
+     * @param array $data
+     * @return void
+     */
+    public function searchCategory(array $data): void
+    {
+        $em = filter_var($data['category'], FILTER_SANITIZE_STRIPPED);
+        $category = (new Category())->findByUri($em);
+
+        if (!$category) {
+            redirect(url());
+        }
+
+        $page = filter_var($data['page'] ?? 1, FILTER_VALIDATE_INT);
+        $page = (($page) ? $page : 1);
+        $postCategory = (new Post())->find("category = :c", "c={$category->id}");
+        $pager = new Paginator(url("c/{$category->uri}"));
+        $pager->pager($postCategory->count(), 9, $page);
+
+        $this->view->show(
+            "blog",
+            [
+                "title" => "Artigos em {$category->title}",
+                "blog" => $postCategory
+                    ->order("id DESC")
+                    ->limit($pager->limit())
+                    ->offset($pager->offset())
+                    ->fetch(true),
+                "paginator" => $pager->render(),
+                "categories" => (new Category())->order("title ASC")->find()->fetch(true)
+            ]
+        );
+    }
+
+    /**
      * Display post details
      *
      * @param array $data
