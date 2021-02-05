@@ -1,4 +1,4 @@
-<?= $this->layout('_theme', ["title" => ""]) ?>
+<?= $this->layout('_theme', ["title" => $post->title]) ?>
 
 <section class="post-section">
     <div class="cover-post" style="background-image: url('<?= url("uploads/{$post->cover}") ?>');"></div>
