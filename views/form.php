@@ -68,40 +68,7 @@
     </article>
 </section>
 
-<!-- 
-            <div class="col-12 d-md-none d-lg-block col-lg-1"></div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <header class="mt-2">
-                    <h5 class="title">Preview <span class="text-danger">Card</span></h5>
-                </header>
-                <article class="pr-3 mt-2 ">
-                    <div class="news-item pb-1">
 
-                        <a href="#">
-                            <img class="img-fluid img" id="preview-img" src="https://via.placeholder.com/300x210" alt="">
-                        </a>
-
-                        <div class="content">
-                            <p class="mt-2 mb-2"><a href="#" class="category card-category">Categoria</a></p>
-
-                            <h5 class="news-title">
-                                <a href="#" class="card-title">Título</a>
-                            </h5>
-
-                            <p class="news-subtitle">
-                                <a href="#" class="card-subtitle">Subtitulo</a>
-                            </p>
-
-                            <p class="meta">
-                                <span style="opacity: 0.5;"><?= date_str("now") ?></span>
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</section>
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -126,8 +93,7 @@
             </div>
         </div>
     </div>
-</div> -->
-
+</div>
 <?= $this->start('js'); ?>
 <script src='https://cdn.tiny.cloud/1/ano7ln2z5t36elzqajxcl0zh2swhoak771laui2lexcvpreg/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
 <script>

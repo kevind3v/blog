@@ -229,20 +229,23 @@ function str_chars(string $string, int $limit, string $pointer = "..."): string
  */
 function image(string $image, string $old = null): ?string
 {
-    if (!empty($image) && preg_match("data:image", $image)) {
-        $first_array = explode(";", $image);
-        $array = explode(",", $first_array[1]);
-        if ($data = base64_decode($array[1], true)) {
-            if ($old) {
-                removeImage($old);
-            }
-            $name = time() . '.png';
-            if (file_put_contents('uploads/' . $name, $data)) {
-                return $name;
+    try {
+        if (!empty($image)) {
+            $first_array = explode(";", $image);
+            $array = explode(",", $first_array[1]);
+            if ($data = base64_decode($array[1], true)) {
+                if ($old) {
+                    removeImage($old);
+                }
+                $name = time() . '.png';
+                if (file_put_contents('uploads/' . $name, $data)) {
+                    return $name;
+                }
             }
         }
+    } catch (\Exception $e) {
+        return null;
     }
-    return null;
 }
 
 /**

@@ -44,20 +44,17 @@
 .cards .card a {
   text-decoration: none !important;
 }
-.cards .card .card-content {
+.cards .card {
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15) !important;
 }
 .cards .card .card-top .img {
   z-index: 4;
 }
-.cards .card .card-top .img:hover {
-  border-radius: 25px !important;
-}
-.cards .card .card-content,
+.cards .card,
 .cards .card .card-top .img {
   padding: 0;
   text-align: left;
-  border-radius: 15px;
+  border-radius: 25px;
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
 }
@@ -114,14 +111,16 @@
   font-weight: 800;
 }
 .badge-red {
-  position: absolute;
-  z-index: 4;
-  top: 189px;
-  color: #fff !important;
-  background: var(--red);
+  color: var(--red-300);
+  background: transparent;
+  text-align: left;
+  white-space: normal;
+  margin-right: 16px;
+  margin-bottom: 10px;
+  padding: 0;
 }
 .badge-red:hover {
-  background: var(--red-800);
+  color: var(--red);
 }
 .badge-category,
 .count-category {
@@ -133,63 +132,156 @@
 /*----------------------------------*/
 /*---------- CONTENT POST ----------*/
 /*----------------------------------*/
-/* .post .content :first-child {
+.post-section .cover-post {
+  max-height: 250px;
+  height: 250px;
+  background: var(--gradient-red);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+}
+.post-section .post-content {
+  width: 100%;
+  position: absolute;
+  top: 180px;
+  z-index: 1;
+}
+.post-content .shadow {
+  background: #fff;
+}
+.post-content .post-top .post-category {
+  border-radius: 50px;
+  font-size: 0.9em;
+  color: var(--red-800);
+  background: var(--red-400);
+  padding: 5px 15px;
+}
+.post-top .post-actions .actions {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  padding-top: 7px;
+}
+.post-top .post-actions .delete {
+  color: var(--red-800);
+  background: var(--red-400);
+}
+.post-top .post-actions .delete:hover {
+  background: var(--red-800);
+  color: var(--red-400);
+}
+.post-top .post-actions .edit {
+  color: #065f46;
+  background: #34d399;
+}
+.post-top .post-actions .edit:hover {
+  background: #065f46;
+  color: #34d399;
+}
+.post-header .p__title {
+  color: var(--red-800);
+  font-weight: 800;
+}
+.post-header .p__subtitle {
+  color: var(--red-400);
+  font-weight: 700;
+}
+.post-header .date {
+  color: #6d6d6d;
+  font-size: 14px;
+  font-weight: 600;
+}
+.post-header .date a,
+.post-header .date b {
+  font-weight: 700;
+}
+.post-header .date a {
+  color: var(--red);
+}
+.post-header .date a:hover {
+  color: var(--red-700);
+}
+.post-section .socials {
+  border-radius: 10px;
+  line-height: 32px;
+  background: #fff;
+}
+.post-section .socials a {
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.4s;
+}
+.post-section .socials a:hover {
+  color: var(--red);
+}
+.post-section .socials a i {
+  font-size: var(--font-large);
+}
+.post-section .post-body:first-child {
   margin-top: 0;
 }
 
-.post .content h2,
-.post .content h3,
-.post .content h4,
-.post .content h5 {
+.post-section .post-body h2,
+.post-section .post-body h3,
+.post-section .post-body h4,
+.post-section .post-body h5 {
   margin: 40px 0 20px 0;
   font-weight: 700;
 }
 
-.post .content h2 {
+.post-section .post-body h2 {
   font-size: 1.8em;
 }
 
-.post .content h3 {
+.post-section .post-body h3 {
   font-size: 1.6em;
 }
 
-.post .content h4 {
+.post-section .post-body h4 {
   font-size: 1.4em;
 }
 
-.post .content h5 {
+.post-section .post-body h5 {
   font-size: 1.2em;
 }
 
-.post .content p {
+.post-section .post-body p {
   margin-top: 25px;
 }
 
-.post .content ul,
-.post .content ol {
+.post-section .post-body ul,
+.post-section .post-body ol {
   margin: 20px 0 20px 40px;
 }
 
-.post .content ul {
+.post-section .post-body ul {
   list-style: circle;
 }
 
-.post .content ol li,
-.post .content ul li {
+.post-section .post-body ol li,
+.post-section .post-body ul li {
   margin-top: 5px;
 }
 
-.post .content a {
+.post-section .post-body a {
   color: var(--color-red);
   font-weight: 700;
   text-decoration: none;
 }
 
-.post .content a:hover {
+.post-section .post-body a:hover {
   text-decoration: underline;
 }
 
-.post .content pre {
+.post-section .post-body pre {
   padding: 20px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -197,4 +289,4 @@
   background: #eeeeee;
   margin: 20px 0;
   overflow-x: auto;
-} */
+}

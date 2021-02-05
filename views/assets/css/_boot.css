@@ -16,7 +16,7 @@
   --red-900: #7f1d1d;
 
   --green: #36ba9b;
-  --green-hover: #218f75;
+  --green-hover: #17725d;
   --blue: #39aed9;
   --yellow: #f5b946;
 
@@ -30,6 +30,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-family);
+}
+a {
+  text-decoration: none !important;
 }
 ::-webkit-scrollbar-track {
   background-color: #f4f4f4;
