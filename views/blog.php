@@ -1,4 +1,4 @@
-<?= $this->layout('_theme') ?>
+<?= $this->layout('_theme', ["title" => $search ?? ""]) ?>
 
 <section class="section-home">
     <article class="bg-header">
@@ -12,20 +12,34 @@
         <div class="container py-3 text-center text-md-left">
             <div class="row justify-content-between">
                 <div class="col-12 col-md-8 order-2 order-md-1">
-                    <button class="btn-category align-items-center">
+                    <button data-toggle="collapse" href="#showCategories" role="button" aria-expanded="false" aria-controls="collapseExample1" class="collapse-item btn-category align-items-center">
                         <i class='bx bxs-category'></i>
                         <span>Categoria</span>
                     </button>
                     <span class="mx-2 space">|</span>
-                    <span class="current">Todos</span>
+                    <a href="<?= url() ?>" class="current">Todos</a>
                 </div>
                 <div class="col-12 col-md-4 order-1 order-md-2 my-3 my-md-0">
-                    <form class="search-box form-content" action="#" method="get" enctype="multipart/form-data">
-                        <input type="text" required placeholder="Buscar artigo...">
+                    <form class="search-box form-content" action="<?= $router->route("web.search") ?>" method="get" enctype="multipart/form-data">
+                        <input type="text" value="<?= $search ?? "" ?>" name="search" required placeholder="Buscar artigo...">
                         <button class="btn-search">
                             <i class='bx bx-search-alt'></i>
                         </button>
                     </form>
+                </div>
+                <div class="col-12 text-left order-2 collapse" id="showCategories">
+                    <?php if (!empty($categories)) : ?>
+                        <?php foreach ($categories as $value) : ?>
+                            <a href="#" data-aos="fade-down" class="badge py-1 my-1 mr-1 badge-category badge-danger"><?= $value->title ?></a>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <article class="empty_content text-center">
+                            <img class="img-fluid mb-3" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
+                            <h5 class="empty_content_title">Sem categorias</h5>
+                            <p class="empty_content_desc">Nenhum resultado encontrado :(</p>
+                        </article>
+
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -36,7 +50,7 @@
             <div class="empty_content">
                 <img data-aos="fade-up" class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
                 <h3 data-aos="fade-right">Vazio :/</h3>
-                <p data-aos="fade-left">Busca por <b style="opacity: 0.5;">PHP</b> não retornou nada :(</p>
+                <p data-aos="fade-left">Busca por <b style="opacity: 0.5;"><?= $search ?></b> não retornou nada :(</p>
                 <a data-aos="fade-down" href="" title="Blog" class="btn btn-gradient py-2 px-5">Voltar</a>
             </div>
         </article>

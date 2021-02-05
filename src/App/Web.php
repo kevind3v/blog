@@ -41,7 +41,8 @@ class Web
                 ->limit($pager->limit())
                 ->offset($pager->offset())
                 ->fetch(true),
-            "paginator" => $pager->render()
+            "paginator" => $pager->render(),
+            "categories" => (new Category())->order("title ASC")->find()->fetch(true)
         ]);
     }
 
@@ -155,6 +156,47 @@ class Web
         return;
     }
 
+    /** Search posts */
+    public function search(array $data): void
+    {
+        if (!empty($data['search'])) {
+            $search = filter_var($data['search'], FILTER_SANITIZE_STRIPPED);
+            echo json_encode(["redirect" => url("/buscar/{$search}/1")]);
+            return;
+        }
+        if (empty($data['params'])) {
+            redirect("/blog");
+        }
+
+        $search = filter_var($data['params'], FILTER_SANITIZE_STRIPPED);
+        $page = (filter_var($data['page'], FILTER_VALIDATE_INT) >= 1 ? $data['page'] : 1);
+        $categories = (new Category())->order("title ASC")->find()->fetch(true);
+        $post = (new Post())
+            ->find("MATCH(title, subtitle) AGAINST(:s)", "s={$search}");
+
+        if (!$post->count()) {
+            $this->view->show("blog", [
+                "search" => $search,
+                "categories" =>  $categories
+            ]);
+            return;
+        }
+
+        $pager = new  Paginator(url("/buscar/{$search}/"));
+        $pager->pager($post->count(), 9, $page);
+
+        $this->view->show("blog", [
+            "search" => $search,
+            "blog" => $post
+                ->order("id DESC")
+                ->limit($pager->limit())
+                ->offset($pager->offset())
+                ->fetch(true),
+            "paginator" => $pager->render(),
+            "categories" =>  $categories
+        ]);
+        return;
+    }
 
     /**
      * Display post details

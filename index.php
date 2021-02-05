@@ -11,12 +11,20 @@ $router->namespace('Src\App');
 /** Web */
 $router->get("/", "Web:home", "web.home");
 $router->get("/p/{page}", "Web:home", "web.home");
-$router->get("/artigo/{uri}", "Web:blogPost", "web.post");
 $router->get("/sobre", "Web:about", "web.about");
+
+/** Display post */
+$router->get("/artigo/{uri}", "Web:blogPost", "web.post");
+
+/** Register */
 $router->get("/novo-artigo", "Web:form", "web.form");
 $router->post("/novo-artigo", "Web:registerPost", "web.register.post");
 $router->get("/nova-categoria", "Web:category", "web.category");
 $router->post("/nova-categoria", "Web:registerCategory", "web.register.category");
+
+/** Search */
+$router->post("/buscar", "Web:search", "web.search");
+$router->get("/buscar/{params}/{page}", "Web:search", "web.getSearch");
 
 /** Error */
 $router->group('oops');
