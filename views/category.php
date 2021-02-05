@@ -33,7 +33,7 @@
                     <header class="mt-2 px-2">
                         <div class="row justify-content-between">
                             <h5>Todas as <b class="text-danger">Categorias</b></h5>
-                            <span class="count-category"><b>Total:</b> <?= count($categories) ?></span>
+                            <span class="count-category"><b>Total:</b> <?= !empty($categories) ? count($categories) : 0  ?></span>
                         </div>
                     </header>
                     <?php if (!empty($categories)) : ?>
@@ -41,12 +41,10 @@
                             <a href="#" data-aos="fade-down" class="badge py-1 my-1 mr-1 badge-category badge-danger"><?= $value->title ?></a>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        <article class="empty_content text-center">
-                            <img class="img-fluid mb-3" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
+                        <article class="empty_content text-center my-5">
                             <h5 class="empty_content_title">Sem categorias</h5>
-                            <p class="empty_content_desc">Nenhum resultado encontrado :(</p>
+                            <p class="empty_content_desc pb-2">O blog não possui categoria cadastrada :(</p>
                         </article>
-
                     <?php endif; ?>
                 </div>
             </div>

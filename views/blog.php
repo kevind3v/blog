@@ -33,10 +33,10 @@
                             <a href="#" data-aos="fade-down" class="badge py-1 my-1 mr-1 badge-category badge-danger"><?= $value->title ?></a>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        <article class="empty_content text-center">
-                            <img class="img-fluid mb-3" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
-                            <h5 class="empty_content_title">Sem categorias</h5>
-                            <p class="empty_content_desc">Nenhum resultado encontrado :(</p>
+                        <article class="empty_content">
+                            <p class="empty_content_desc">Ainda não tem categoria cadastrada.
+                                <a class="text-danger" href="<?= $router->route("web.category") ?>"><b>Criar categoria</b></a>
+                            </p>
                         </article>
 
                     <?php endif; ?>
