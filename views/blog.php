@@ -68,7 +68,7 @@
         <article class="cards container mt-3">
             <div class="row">
                 <?php foreach ($blog as $post) : ?>
-                    <?= $this->insert("card", ["post" => $post, "router" => $router]); ?>
+                    <?= $this->insert("widget::card", ["post" => $post, "router" => $router]); ?>
                 <?php endforeach; ?>
             </div>
             <?= $paginator ?>

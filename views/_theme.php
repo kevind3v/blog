@@ -85,21 +85,6 @@
         </div>
       </div>
     </div>
-    <!-- <section class="container-fluid text-center footer-color">
-            <div class="container footer-content">
-                <div class="row justify-content-between">
-                    <div class="col-6 copyright">
-                        <ul class="list-style-none mb-0 d-flex flex-wrap">
-                            <li class="mr-3">
-                                &copy; <?= date('Y') ?>
-                                <a href="<?= url() ?>" class="ml-1">blog</a>, Inc.
-                            </li>
-                        </ul>
-                    </div>
-                    
-                </div>
-            </div>
-        </section> -->
   </footer>
 
 
@@ -112,8 +97,8 @@
   <script src="<?= package('sweetalert2/dist/sweetalert2.min.js') ?>"></script>
   <script src="<?= package("aos/dist/aos.js"); ?>"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src='https://cdn.tiny.cloud/1/ano7ln2z5t36elzqajxcl0zh2swhoak771laui2lexcvpreg/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
   <script src="<?= asset("scripts.min.js") ?>"></script>
-  <?= $this->section('js') ?>
   <script>
     <?= alert() ?>
   </script>

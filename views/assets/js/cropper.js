@@ -32,8 +32,9 @@ $(() => {
     });
   $('#crop').on('click', () => {
     canvas = cropper.getCroppedCanvas({
-      width: 300,
-      height: 210,
+      minWidth: 300,
+      minHeight: 210,
+      imageSmoothingQuality: 'high',
     });
     canvas.toBlob((b) => {
       url = URL.createObjectURL(b);

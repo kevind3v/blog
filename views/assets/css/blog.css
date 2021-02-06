@@ -133,22 +133,17 @@
 /*---------- CONTENT POST ----------*/
 /*----------------------------------*/
 .post-section .cover-post {
-  max-height: 250px;
-  height: 250px;
+  max-height: 400px;
+  height: 400px;
   background: var(--gradient-red);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  -webkit-filter: blur(2px);
-  filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
 }
 .post-section .post-content {
   width: 100%;
   position: absolute;
-  top: 180px;
+  top: 200px;
   z-index: 1;
 }
 .post-content .shadow {

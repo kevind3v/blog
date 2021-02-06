@@ -22,6 +22,12 @@ $router->post("/novo-artigo", "Web:registerPost", "web.register.post");
 $router->get("/nova-categoria", "Web:category", "web.category");
 $router->post("/nova-categoria", "Web:registerCategory", "web.register.category");
 
+/** Edit */
+$router->get("/artigo/{uri}/editar", "Web:formPost", "web.form.post");
+$router->post("/artigo/{uri}/editar", "Web:editPost", "web.edit.post");
+
+/** Delete */
+
 /** Search */
 $router->post("/buscar", "Web:search", "web.search");
 $router->get("/buscar/{params}/{page}", "Web:search", "web.getSearch");

@@ -1,7 +1,7 @@
 <article class="cards">
     <div class="card mt-3" data-aos="zoom-in-up">
         <header class="card-top">
-            <a href=''>
+            <a href="#">
                 <img class="img-fluid img" id="preview-img" src="<?= asset('img/card.png') ?>" alt="">
             </a>
         </header>

@@ -20,6 +20,7 @@ class Web
     {
         $this->view = new BrPlates(BRPLATES);
         $this->view->data(["router" => $router]);
+        $this->view->addTemplate("widget", BRPLATES . "/includes");
         $this->message = new Message();
     }
 
@@ -107,7 +108,7 @@ class Web
     public function form(): void
     {
         if (!(new Category())->find()->count()) {
-            $this->message->flash("Você precisa cadastrar categoria primeiro");
+            $this->message->error("Você precisa cadastrar categoria primeiro")->flash();
             redirect(url("nova-categoria"));
         }
         $this->view->show("form", [
@@ -141,8 +142,9 @@ class Web
             $post->cover = $image;
 
             if ($post->save()) {
-                $response['redirect'] = url();
-                echo json_encode($response);
+                $this->message->success("Produto atualizado com sucesso")->flash();
+                $json['redirect'] = url();
+                echo json_encode($json);
                 return;
             } else {
                 removeImage($image);
@@ -242,16 +244,83 @@ class Web
      */
     public function blogPost(array $data): void
     {
-        $data = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
-        $post = (new Post())->findByUri($data);
+        $uri = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
+        $post = (new Post())->findByUri($uri);
         if (!$post) {
             redirect("/404");
         }
         $post->views += 1;
         $post->save();
         $this->view->show("post", [
-            "post" => (new Post())->findByUri($data)
+            "post" => $post
         ]);
+    }
+
+    /**
+     * Display form edit post
+     *
+     * @param array $data
+     * @return void
+     */
+    public function formPost(array $data): void
+    {
+        $uri = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
+        $post = (new Post())->findByUri($uri);
+        if (!$post) {
+            redirect("/404");
+        }
+        $this->view->show("edit", [
+            "title" => "Editar artigo",
+            "post" => $post,
+            "categories" => (new Category())->order("title ASC")->find()->fetch(true)
+        ]);
+    }
+
+    /**
+     * Edit post
+     *
+     * @param array $data
+     * @return void
+     */
+    public function editPost(array $data): void
+    {
+        if (in_array("", $data)) {
+            $json['error'] = true;
+            $json['message'] = $this->message->warning(
+                "Informe o campo abaixo!!"
+            )->render();
+            echo json_encode($json);
+            return;
+        }
+        $uri = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
+        $post = (new Post())->findByUri($uri);
+        if (!$post) {
+            redirect("/404");
+        }
+        $post->category = $data['category'];
+        $post->title = $data['title'];
+        $post->uri = str_slug($data['title']);
+        $post->subtitle = $data['subtitle'];
+        $post->content = $data['content'];
+        if (!empty($data['image']) && $data['image'] != $post->cover) {
+            if ($image = image($data['image'])) {
+                $post->cover = $image;
+            }
+        }
+
+        if ($post->save()) {
+            $this->message->success("Produto atualizado com sucesso")->flash();
+            $json['redirect'] = url("artigo/{$post->uri}");
+            echo json_encode($json);
+            return;
+        }
+
+        $json['error'] = true;
+        $json['message'] = $this->message->warning(
+            "Tivemos um problema!!"
+        )->render();
+        echo json_encode($json);
+        return;
     }
 
     /**

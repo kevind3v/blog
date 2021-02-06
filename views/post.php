@@ -9,7 +9,7 @@
                     <span class="badge post-category badge-danger"><?= $post->categories()->title ?></span>
                 </div>
                 <div class="post-actions">
-                    <a title="Editar Artigo" href="#" class="btn actions edit mr-2">
+                    <a title="Editar Artigo" href="<?= $router->route("web.form.post", ["uri" => $post->uri]) ?>" class="btn actions edit mr-2">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
                     <a title="Deletar Artigo" href="#" class="btn actions delete ml-2">

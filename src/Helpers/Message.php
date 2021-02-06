@@ -86,11 +86,11 @@ class Message
      * @param string $redirect
      * @return Session
      */
-    public function flash(string $message, string $type = "error", string $redirect = ""): Session
+    public function flash(string $redirect = ""): Session
     {
         return (new Session())->set("flash", [
-            "message" => $message,
-            "type" => $type,
+            "message" => $this->text,
+            "type" => $this->type,
             "url" => $redirect
         ]);
     }
