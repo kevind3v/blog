@@ -1,7 +1,7 @@
 <?= $this->layout('_theme', ["title" => $post->title]) ?>
 
 <section class="post-section">
-    <div class="cover-post" style="background-image: url('<?= url("uploads/{$post->cover}") ?>');"></div>
+    <div class="cover-post" style="background-image: url('<?= url("{$post->cover}") ?>');"></div>
     <div class="post-content px-2">
         <article class="container shadow p-4">
             <div class="post-top row align-items-center justify-content-between px-3">

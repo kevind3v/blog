@@ -3,6 +3,7 @@
 namespace Src\App;
 
 use Src\Core\Controller;
+use Src\Helpers\Image;
 use Src\Models\Category;
 use Src\Models\Post as article;
 
@@ -41,6 +42,7 @@ class Post extends Controller
             echo json_encode($json);
             return;
         }
+
         $uri = str_slug(trim($data['title']));
         if ((new article())->findByUri($uri)) {
             $json['message'] = $this->message->warning(
@@ -49,23 +51,26 @@ class Post extends Controller
             echo json_encode($json);
             return;
         }
-        if ($image = image($data['image'])) {
+
+        try {
             $post = new article();
             $post->category = $data['category'];
             $post->title = trim($data['title']);
             $post->uri = $uri;
             $post->subtitle = $data['subtitle'];
             $post->content = $data['content'];
+            $image = (new Image("uploads", "images"))->base64($data['image'], $uri);
             $post->cover = $image;
-
             if ($post->save()) {
                 $this->message->success("Produto atualizado com sucesso")->flash();
                 $json['redirect'] = url();
                 echo json_encode($json);
                 return;
-            } else {
-                removeImage($image);
             }
+        } catch (\Exception $e) {
+            $json['message'] = $this->message->warning(
+                $e->getMessage()
+            )->render();
         }
         $json['message'] = $this->message->warning(
             "Tivemos um problema!!"
@@ -146,16 +151,28 @@ class Post extends Controller
             echo json_encode($json);
             return;
         }
-        $post->category = $data['category'];
-        $post->title = $data['title'];
-        $post->uri = $uri;
-        $post->subtitle = $data['subtitle'];
-        $post->content = $data['content'];
-        if (!empty($data['image']) && $data['image'] != $post->cover) {
-            if ($image = image($data['image'])) {
-                removeImage($post->cover);
+
+        try {
+            $post->category = $data['category'];
+            $post->title = $data['title'];
+            $post->uri = $uri;
+            $post->subtitle = $data['subtitle'];
+            $post->content = $data['content'];
+            if (!empty($data['image'])) {
+                $image = (new Image("uploads", "images"))->base64($data['image'], $uri);
+                Image::remove($post->cover);
                 $post->cover = $image;
             }
+            if ($post->save()) {
+                $this->message->success("Produto atualizado com sucesso")->flash();
+                $json['redirect'] = url();
+                echo json_encode($json);
+                return;
+            }
+        } catch (\Exception $e) {
+            $json['message'] = $this->message->warning(
+                $e->getMessage()
+            )->render();
         }
 
         if ($post->save()) {
@@ -184,7 +201,7 @@ class Post extends Controller
         if ($post) {
             $image = $post->cover;
             if ($post->destroy()) {
-                removeImage($image);
+                Image::remove($image);
                 $this->message->success("Artigo deletado!!")->flash();
                 $json['redirect'] = url();
                 echo json_encode($json);

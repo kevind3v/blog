@@ -2,7 +2,7 @@
     <div class="card mt-3" data-aos="zoom-in-up">
         <header class="card-top">
             <a href="#">
-                <img class="img-fluid img" id="preview-img" src="<?= url("uploads/{$data->cover}") ?>" alt="<?= $data->title ?>">
+                <img class="img-fluid img" id="preview-img" src="<?= url("{$data->cover}") ?>" alt="<?= $data->title ?>">
             </a>
         </header>
         <div class="card-content">

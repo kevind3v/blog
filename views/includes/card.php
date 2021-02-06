@@ -2,7 +2,7 @@
     <div class="card mt-3" data-aos="zoom-in-up">
         <header class="card-top">
             <a href="<?= $router->route("post.show", ["uri" => $post->uri]) ?>">
-                <img class="img-fluid img" src="<?= url("uploads/{$post->cover}") ?>" alt="<?= $post->uri ?>">
+                <img class="img-fluid img" src="<?= url("{$post->cover}") ?>" alt="<?= $post->uri ?>">
             </a>
         </header>
         <div class="card-content">
