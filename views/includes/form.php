@@ -56,6 +56,7 @@
                             <label for="content">Conteúdo</label>
                             <textarea placeholder="Digite aqui..." class="form-control" id="content" rows="15" name="content"><?= $data->content ?? "" ?></textarea>
                         </div>
+                        <input type="hidden" name="id" value="<?= $data->id ?? "#" ?>">
                         <button class="btn btn-default py-2 btn-block" type="submit">Salvar artigo</button>
                     </form>
                 </div>

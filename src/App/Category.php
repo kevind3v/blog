@@ -31,7 +31,6 @@ class Category extends Controller
     public function register(array $data): void
     {
         if (empty($data['category'])) {
-            $json['error'] = true;
             $json['message'] = $this->message->warning(
                 "Informe o campo abaixo!!"
             )->render();
@@ -41,7 +40,6 @@ class Category extends Controller
         $dataCategory = filter_var($data['category'], FILTER_SANITIZE_STRIPPED);
         $category = new categories();
         if ($category->check($dataCategory)) {
-            $json['error'] = true;
             $json['message'] = $this->message->warning(
                 "Categoria já cadastrada"
             )->render();
@@ -51,10 +49,9 @@ class Category extends Controller
         $category->title = $dataCategory;
         $category->uri = str_slug($dataCategory);
         if ($category->save()) {
+            $this->message->success("Categoria cadastrada!!")->flash();
             $json['error'] = false;
-            $json['message'] = "Cadastrado com sucesso";
         } else {
-            $json['error'] = true;
             $json['message'] = $this->message->error(
                 "Não foi possível cadastrar {$dataCategory}"
             )->render();

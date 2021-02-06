@@ -54,9 +54,14 @@ function alert()
 {
     $session = new Session();
     if ($flash = $session->flash()) {
-        $str = "Swal.fire({icon: '{$flash->type}',title: 'Ops...',text: '{$flash->message}',})";
-        $str .= ".then((result) => {if (result.isConfirmed) { ";
-        $str .= !empty($flash->url) ? "window.location.href = {$flash->url}" : "" . "}});";
+        if ($flash->type === "success") {
+            $str = "const Toast = Swal.mixin({toast: true,position: 'top-end',showConfirmButton: false,timer: 3000,timerProgressBar: true,});";
+            $str .= "Toast.fire({icon: 'success',title: '{$flash->message}'})";
+        } else {
+            $str = "Swal.fire({icon: '{$flash->type}',title: 'Ops...',text: '{$flash->message}',})";
+            $str .= ".then((result) => {if (result.isConfirmed) { ";
+            $str .= !empty($flash->url) ? "window.location.href = {$flash->url}" : "" . "}});";
+        }
         return $str;
     }
     return null;

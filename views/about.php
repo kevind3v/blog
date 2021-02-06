@@ -21,6 +21,7 @@
         </div>
     </div>
 </section>
+
 <h6 class="title-section" data-aos="flip-up">Criador do Projeto</h6>
 <section class="about-profile py-4 bg-white">
     <div class="container">
@@ -31,26 +32,26 @@
                 </div>
             </div>
             <div class="col-md-6 col-12">
-                <div class="profile-wrapper">
+                <div class="profile">
                     <h3 data-aos="fade-down">Fala Dev</h3>
-                    <p data-aos="fade-right">
+                    <p data-aos="fade-up">
                         Sou um jovem técnico em Informática e Desenvolvimento de Sistemas tendo
                         inicio em 2018, atualmente sou estudante de análise e desenvolvimento de sistemas.
                         Desenvolvi vários projetos acadêmicos, sempre conversando sobre a experiência do usuário
                         e a qualidade do código.
                     </p>
-                    <p data-aos="fade-left">
+                    <p data-aos="fade-down">
                         A proposta do layout foi criar um blog, tendo o principal objetivo agregar mais um projeto
                         para meu portfolio. (Esse projeto foi desenvolvido em php puro na estrutura MVC.)
                     </p>
                     <div class="about">
                         <ul>
-                            <li data-aos="fade-left">Nome:<span class="detail">Kevin Siqueira</span></li>
-                            <li data-aos="fade-right">Usuário:<span class="detail">@kevind3v</span></li>
-                            <li data-aos="fade-left">Idade:<span class="detail">18 anos</span></li>
-                            <li data-aos="fade-right">Bio:<span class="detail">Estudante e Desenvolvedor Full Stack</span></li>
-                            <li data-aos="fade-left">Localização:<span class="detail">São Paulo - Brasil</span></li>
-                            <li data-aos="fade-right">E-mail:<a href="mailto:kevinsiqueira.dev@gmail.com" class="detail">kevinsiqueira.dev@gmail.com</a></li>
+                            <li data-aos="fade-up">Nome:<span class="detail">Kevin Siqueira</span></li>
+                            <li data-aos="fade-down">Usuário:<span class="detail">@kevind3v</span></li>
+                            <li data-aos="fade-up">Idade:<span class="detail">18 anos</span></li>
+                            <li data-aos="fade-down">Bio:<span class="detail">Estudante e Desenvolvedor Full Stack</span></li>
+                            <li data-aos="fade-up">Localização:<span class="detail">São Paulo - Brasil</span></li>
+                            <li data-aos="fade-down">E-mail:<a href="mailto:kevinsiqueira.dev@gmail.com" class="detail">kevinsiqueira.dev@gmail.com</a></li>
                         </ul>
                         <div class="row socials">
                             <span>
@@ -81,15 +82,16 @@
         </div>
     </div>
 </section>
+
 <h6 class="title-section" data-aos="flip-up">Ficou com dúvida?</h6>
 <section class="faq mb-5">
     <div class="content container text-center">
         <img data-aos="zoom-in" src="<?= asset("img/svg/faq.svg") ?>" width="250" class="img-fluid mb-3" alt="Faq" />
         <header>
-            <h5 class="title" data-aos="fade-left">
+            <h5 class="title" data-aos="fade-up">
                 <span>Perguntas</span> frequentes:
             </h5>
-            <p class="subtitle ml-0" data-aos="fade-right">
+            <p class="subtitle ml-0" data-aos="fade-down">
                 Confira as principais dúvidas e repostas sobre o <b>blog</b>.
             </p>
         </header>

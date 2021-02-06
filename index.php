@@ -24,6 +24,7 @@ $router->post("/novo-artigo", "Post:register", "post.register.post");
 $router->get("/artigo/{uri}", "Post:post", "post.show");
 $router->get("/artigo/{uri}/editar", "Post:formEdit", "post.form.edit");
 $router->post("/artigo/{uri}/editar", "Post:edit", "post.edit");
+$router->post("/artigo/delete", "Post:delete", "post.delete");
 
 /** Category */
 $router->get("/nova-categoria", "Category:form", "category.form");

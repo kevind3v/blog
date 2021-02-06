@@ -18,7 +18,7 @@ class Post extends Controller
     public function form(): void
     {
         if (!(new Category())->find()->count()) {
-            $this->message->error("Você precisa cadastrar categoria primeiro")->flash();
+            $this->message->error("Você precisa cadastrar categorias primeiro")->flash();
             redirect(url("nova-categoria"));
         }
         $this->view->show("form", [
@@ -35,9 +35,16 @@ class Post extends Controller
     public function register(array $data): void
     {
         if (in_array("", $data) || $data['category'] == "#") {
-            $json['error'] = true;
             $json['message'] = $this->message->warning(
-                "Informe o campo abaixo!!"
+                "Informe os campos abaixo!!"
+            )->render();
+            echo json_encode($json);
+            return;
+        }
+        $uri = str_slug(trim($data['title']));
+        if ((new article())->findByUri($uri)) {
+            $json['message'] = $this->message->warning(
+                "Já existe um artigo com o título informado"
             )->render();
             echo json_encode($json);
             return;
@@ -45,8 +52,8 @@ class Post extends Controller
         if ($image = image($data['image'])) {
             $post = new article();
             $post->category = $data['category'];
-            $post->title = $data['title'];
-            $post->uri = str_slug($data['title']);
+            $post->title = trim($data['title']);
+            $post->uri = $uri;
             $post->subtitle = $data['subtitle'];
             $post->content = $data['content'];
             $post->cover = $image;
@@ -60,7 +67,6 @@ class Post extends Controller
                 removeImage($image);
             }
         }
-        $json['error'] = true;
         $json['message'] = $this->message->warning(
             "Tivemos um problema!!"
         )->render();
@@ -116,22 +122,33 @@ class Post extends Controller
      */
     public function edit(array $data): void
     {
-        if (in_array("", $data)) {
-            $json['error'] = true;
+        if (in_array("", $data) && $data['id'] === "#") {
             $json['message'] = $this->message->warning(
                 "Informe o campo abaixo!!"
             )->render();
             echo json_encode($json);
             return;
         }
-        $uri = filter_var($data['uri'], FILTER_SANITIZE_STRIPPED);
-        $post = (new article())->findByUri($uri);
+
+        $idPost = filter_var($data['id'], FILTER_VALIDATE_INT);
+
+        $post = (new article())->findById($idPost);
         if (!$post) {
             redirect("/404");
         }
+
+        $uri = str_slug(trim($data['title']));
+        $checkPost = (new article())->findByUri($uri);
+        if ($checkPost && $checkPost->id != $idPost) {
+            $json['message'] = $this->message->warning(
+                "Já existe um artigo com o título informado"
+            )->render();
+            echo json_encode($json);
+            return;
+        }
         $post->category = $data['category'];
         $post->title = $data['title'];
-        $post->uri = str_slug($data['title']);
+        $post->uri = $uri;
         $post->subtitle = $data['subtitle'];
         $post->content = $data['content'];
         if (!empty($data['image']) && $data['image'] != $post->cover) {
@@ -148,11 +165,33 @@ class Post extends Controller
             return;
         }
 
-        $json['error'] = true;
         $json['message'] = $this->message->warning(
             "Tivemos um problema!!"
         )->render();
         echo json_encode($json);
+        return;
+    }
+
+    /**
+     * Delete post
+     *
+     * @param array $data
+     */
+    public function delete(array $data): void
+    {
+        $id = filter_var($data['id'], FILTER_SANITIZE_STRIPPED);
+        $post = (new article())->findById($id);
+        if ($post) {
+            $image = $post->cover;
+            if ($post->destroy()) {
+                removeImage($image);
+                $this->message->success("Artigo deletado!!")->flash();
+                $json['redirect'] = url();
+                echo json_encode($json);
+                return;
+            }
+        }
+        header("HTTP/1.0 403 Forbidden");
         return;
     }
 }

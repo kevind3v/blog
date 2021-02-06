@@ -21,6 +21,7 @@ class Post extends DataLayer
         return $find->fetch();
     }
 
+
     public function categories(): ?Category
     {
         if ($this->category) {

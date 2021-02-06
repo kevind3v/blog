@@ -82,31 +82,31 @@ h5 {
   border: 8px solid #fff;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15) !important;
 }
-.about-profile .profile-wrapper {
+.about-profile .profile {
   padding: 15px 0;
 }
-.about-profile .profile-wrapper h3 {
+.about-profile .profile h3 {
   font-weight: 800;
 }
-.about-profile .profile-wrapper p {
+.about-profile .profile p {
   text-align: justify;
   color: #949494;
 }
-.about-profile .about {
+.about-profile .profile .about {
   position: relative;
   margin: 20px 0 20px 0;
 }
-.about-profile .about ul li {
+.about-profile .profile .about ul li {
   font-weight: 800 !important;
   color: #040404;
   position: relative;
   margin-bottom: 5px;
   list-style-type: none;
 }
-.about-profile .about ul li a:hover {
+.about-profile .profile .about ul li a:hover {
   color: var(--green-600);
 }
-.about-profile .about .detail {
+.about-profile .profile .about .detail {
   text-decoration: none;
   color: #040404;
   font-weight: 600;
@@ -114,21 +114,21 @@ h5 {
   margin-left: 5px;
   font-size: var(--font-small);
 }
-.about-profile .about .socials {
+.about-profile .profile .about .socials {
   color: #fff;
   text-decoration: none;
   margin: 3vh 0px !important;
 }
-.about-profile .about .socials span {
+.about-profile .profile .about .socials span {
   display: inline-block !important;
   font-size: var(--font-medium);
   margin-right: 30px;
   font-weight: normal !important;
 }
-.about-profile .about .socials span a {
+.about-profile .profile .about .socials span a {
   color: var(--green-600);
 }
-.about-profile .about .socials span a:hover {
+.about-profile .profile .about .socials span a:hover {
   color: var(--green-400);
 }
 .faq .content .collapse-content {

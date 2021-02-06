@@ -51,26 +51,26 @@
         </div>
     </article>
 
-    <?php if (empty($data) && !empty($search)) : ?>
+    <?php if (empty($data->posts) && !empty($search)) : ?>
         <article class="empty container text-center mt-3">
             <div class="empty_content">
                 <img data-aos="fade-up" class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
-                <h3 data-aos="fade-right">Vazio :/</h3>
-                <p data-aos="fade-left">Busca por <b style="opacity: 0.5;"><?= $search ?></b> não retornou nada :(</p>
+                <h3 data-aos="zoon-out">Vazio :/</h3>
+                <p data-aos="zoom-in">Busca por <b style="opacity: 0.5;"><?= $search ?></b> não retornou nada :(</p>
                 <a data-aos="fade-down" href="" title="Blog" class="btn btn-gradient py-2 px-5">Voltar</a>
             </div>
         </article>
-    <?php elseif (empty($data)) : ?>
+    <?php elseif (empty($data->posts)) : ?>
         <article class="empty container text-center mt-3">
             <div class="empty_content">
                 <img data-aos="fade-down" class="img-fluid mb-4" src="<?= asset('img/svg/under.svg') ?>" alt="Sem Artigos">
-                <h3 data-aos="fade-left">Sem artigos!</h3>
-                <p data-aos="fade-right">Ainda não possuímos artigos publicados :(</p>
+                <h3 data-aos="zoom-in">Sem artigos!</h3>
+                <p data-aos="zoon-out">Ainda não possuímos artigos publicados :(</p>
             </div>
         </article>
     <?php else : ?>
         <article class="cards container mt-3">
-            <h4 class="count-result" data-aos="fade-left">
+            <h4 class="count-result" data-aos="zoom-in">
                 Total de <?= $data->count, ($data->count == 1) ? ' artigo' : ' artigos' ?>
                 <?php if (!empty($search) || !empty($category)) : ?>
                     para <span><?= $search ?? $category ?></span>

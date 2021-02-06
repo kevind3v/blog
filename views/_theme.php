@@ -48,7 +48,7 @@
           <li class="nav-item">
             <a href="<?= $router->route("category.form") ?>" class="nav-link link">Nova Categoria</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item ">
             <a href="<?= $router->route("post.form") ?>" class="btn btn-border ml-md-3">
               <i class="fas fa-plus mr-1"></i>Novo Artigo
             </a>
@@ -97,8 +97,8 @@
   <script src="<?= package('sweetalert2/dist/sweetalert2.min.js') ?>"></script>
   <script src="<?= package("aos/dist/aos.js"); ?>"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src='https://cdn.tiny.cloud/1/ano7ln2z5t36elzqajxcl0zh2swhoak771laui2lexcvpreg/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
   <script src="<?= asset("scripts.min.js") ?>"></script>
+  <?= $this->section('js') ?>
   <script>
     <?= alert() ?>
   </script>

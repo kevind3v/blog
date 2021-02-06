@@ -22,8 +22,8 @@
   position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   transition: all 0.4s;
   background: var(--red-50);
   z-index: 4;
@@ -67,22 +67,13 @@
 .btn-gradient:hover {
   background: var(--gradient-hover-red);
 }
-.btn-edit,
-.btn-delete {
-  padding: 10px 30px !important;
-  color: #fff !important;
+.btn-edit-border {
+  color: var(--green);
+  border: 2px solid var(--green);
 }
-.btn-delete {
-  background: var(--red);
-}
-.btn-delete:hover {
-  background: var(--red-800);
-}
-.btn-edit {
+.btn-edit-border:hover {
+  color: #fff;
   background: var(--green);
-}
-.btn-edit:hover {
-  background: var(--green-hover);
 }
 /*----------------------------*/
 /*---------- HEADER ----------*/
@@ -129,8 +120,9 @@
   border: none;
 }
 .navbar-toggler i {
+  display: block !important;
   font-size: 28px;
-  color: var(--red);
+  color: var(--red) !important;
 }
 /*----------------------------*/
 /*---------- FOOTER ----------*/

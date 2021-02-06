@@ -12,7 +12,7 @@
                     <a title="Editar Artigo" href="<?= $router->route("post.form.edit", ["uri" => $post->uri]) ?>" class="btn actions edit mr-2">
                         <i class="fas fa-pencil-alt"></i>
                     </a>
-                    <a title="Deletar Artigo" href="#" class="btn actions delete ml-2">
+                    <a title="Deletar Artigo" data-id="<?= $post->id ?>" data-action="<?= $router->route("post.delete") ?>" class="btn actions delete ml-2">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </div>
@@ -48,3 +48,51 @@
         </article>
     </div>
 </section>
+
+
+<?= $this->start("js"); ?>
+<script>
+    $('body').on('click', '[data-action]', function(e) {
+        e.preventDefault();
+        var data = $(this).data();
+        const swall = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-edit-border mr-2',
+                cancelButton: 'btn btn-border'
+            },
+            buttonsStyling: false
+        })
+
+        swall.fire({
+            title: 'Excluir artigo?',
+            text: 'Vai mesmo excluir o artigo??',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Deletar',
+            cancelButtonText: 'Cancelar!',
+        }).then((willDelete) => {
+            if (willDelete.isConfirmed) {
+                console.log(data.action);
+                $.ajax({
+                    url: data.action,
+                    data: data,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(callback) {
+                        if (callback.redirect) {
+                            window.location.href = callback.redirect;
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Ops!!',
+                            text: "Erro ao excluir produto",
+                        });
+                    },
+                });
+            }
+        });
+    });
+</script>
+<?= $this->end(); ?>
