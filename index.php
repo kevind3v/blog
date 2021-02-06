@@ -12,27 +12,23 @@ $router->namespace('Src\App');
 $router->get("/", "Web:home", "web.home");
 $router->get("/p/{page}", "Web:home", "web.home");
 $router->get("/sobre", "Web:about", "web.about");
-
-/** Display post */
-$router->get("/artigo/{uri}", "Web:blogPost", "web.post");
-
-/** Register */
-$router->get("/novo-artigo", "Web:form", "web.form");
-$router->post("/novo-artigo", "Web:registerPost", "web.register.post");
-$router->get("/nova-categoria", "Web:category", "web.category");
-$router->post("/nova-categoria", "Web:registerCategory", "web.register.category");
-
-/** Edit */
-$router->get("/artigo/{uri}/editar", "Web:formPost", "web.form.post");
-$router->post("/artigo/{uri}/editar", "Web:editPost", "web.edit.post");
-
-/** Delete */
-
 /** Search */
 $router->post("/buscar", "Web:search", "web.search");
 $router->get("/buscar/{params}/{page}", "Web:search", "web.getSearch");
 $router->get("/c/{category}", "Web:searchCategory", "web.by.category");
 $router->get("/c/{category}/{page}", "Web:searchCategory", "web.page.by.Category");
+
+/** Post */
+$router->get("/novo-artigo", "Post:form", "post.form");
+$router->post("/novo-artigo", "Post:register", "post.register.post");
+$router->get("/artigo/{uri}", "Post:post", "post.show");
+$router->get("/artigo/{uri}/editar", "Post:formEdit", "post.form.edit");
+$router->post("/artigo/{uri}/editar", "Post:edit", "post.edit");
+
+/** Category */
+$router->get("/nova-categoria", "Category:form", "category.form");
+$router->post("/nova-categoria", "Category:register", "web.register");
+
 
 /** Error */
 $router->group('oops');

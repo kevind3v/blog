@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe14f92169888a354f7d95603de3037f",
+    "content-hash": "8c355c3ec906999d00ef2ea367458cf0",
     "packages": [
+        {
+            "name": "brbunny/brplates",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kevind3v/brplates.git",
+                "reference": "7ecebb7a9421c2020646c54640ca6088c25451dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kevind3v/brplates/zipball/7ecebb7a9421c2020646c54640ca6088c25451dd",
+                "reference": "7ecebb7a9421c2020646c54640ca6088c25451dd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "league/plates": "3.4.*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BrBunny\\BrPlates\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Santos",
+                    "email": "kevinsiqueira.dev@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "BrPlates is a component for handling view layer using Plates",
+            "support": {
+                "issues": "https://github.com/kevind3v/brplates/issues",
+                "source": "https://github.com/kevind3v/brplates/tree/v1.0.0"
+            },
+            "time": "2021-02-06T00:21:51+00:00"
+        },
         {
             "name": "coffeecode/datalayer",
             "version": "1.1.7",
@@ -155,6 +201,70 @@
                 "source": "https://github.com/robsonvleite/router/tree/master"
             },
             "time": "2019-09-30T16:29:47+00:00"
+        },
+        {
+            "name": "league/plates",
+            "version": "v3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/plates.git",
+                "reference": "6d3ee31199b536a4e003b34a356ca20f6f75496a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/plates/zipball/6d3ee31199b536a4e003b34a356ca20f6f75496a",
+                "reference": "6d3ee31199b536a4e003b34a356ca20f6f75496a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0|^8.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Plates\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Reinink",
+                    "email": "jonathan@reinink.ca",
+                    "role": "Developer"
+                },
+                {
+                    "name": "RJ Garcia",
+                    "email": "ragboyjr@icloud.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Plates, the native PHP template system that's fast, easy to use and easy to extend.",
+            "homepage": "https://platesphp.com",
+            "keywords": [
+                "league",
+                "package",
+                "templates",
+                "templating",
+                "views"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/plates/issues",
+                "source": "https://github.com/thephpleague/plates/tree/v3.4.0"
+            },
+            "time": "2020-12-25T05:00:37+00:00"
         },
         {
             "name": "matthiasmullie/minify",

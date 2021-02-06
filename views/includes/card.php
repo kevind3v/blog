@@ -1,7 +1,7 @@
 <article class="col-12 col-md-6 col-lg-4">
     <div class="card mt-3" data-aos="zoom-in-up">
         <header class="card-top">
-            <a href="<?= $router->route("web.post", ["uri" => $post->uri]) ?>">
+            <a href="<?= $router->route("post.show", ["uri" => $post->uri]) ?>">
                 <img class="img-fluid img" src="<?= url("uploads/{$post->cover}") ?>" alt="<?= $post->uri ?>">
             </a>
         </header>
@@ -11,14 +11,14 @@
                     <a href="<?= $router->route("web.by.category", ["category" => $post->categories()->uri]) ?>" class="badge badge-category badge-red">
                         <span><?= $post->categories()->title ?></span>
                     </a>
-                    <a href="<?= $router->route("web.post", ["uri" => $post->uri]) ?>">
+                    <a href="<?= $router->route("post.show", ["uri" => $post->uri]) ?>">
                         <h6 class="title mb-0"><?= $post->title ?></h6>
                     </a>
                     <p class="date"><?= date_str($post->created_at) ?></p>
                 </header>
                 <p class="subtitle">
                     <?= str_chars("{$post->subtitle}", 120) ?>
-                    <a href="<?= $router->route("web.post", ["uri" => $post->uri]) ?>">Saiba Mais</a>
+                    <a href="<?= $router->route("post.show", ["uri" => $post->uri]) ?>">Saiba Mais</a>
                 </p>
             </div>
             <div class="card-footer">

@@ -3,8 +3,12 @@
 <section class="section-home">
     <article class="bg-header">
         <div class="container py-2">
-            <h1 class="pt-2">Blog</h1>
-            <p> Seja bem-vindo(a) e fique a vontade!! </p>
+            <h1 class="pt-2">Blog </h1>
+            <?php if (!empty($data) && !empty($search)) : ?>
+                <p>Resultados da busca para <b><?= $search ?></b></p>
+            <?php else : ?>
+                <p> Seja bem-vindo(a) e fique a vontade!! </p>
+            <?php endif; ?>
         </div>
     </article>
 
@@ -47,7 +51,7 @@
         </div>
     </article>
 
-    <?php if (empty($blog) && !empty($search)) : ?>
+    <?php if (empty($data) && !empty($search)) : ?>
         <article class="empty container text-center mt-3">
             <div class="empty_content">
                 <img data-aos="fade-up" class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
@@ -56,7 +60,7 @@
                 <a data-aos="fade-down" href="" title="Blog" class="btn btn-gradient py-2 px-5">Voltar</a>
             </div>
         </article>
-    <?php elseif (empty($blog)) : ?>
+    <?php elseif (empty($data)) : ?>
         <article class="empty container text-center mt-3">
             <div class="empty_content">
                 <img data-aos="fade-down" class="img-fluid mb-4" src="<?= asset('img/svg/under.svg') ?>" alt="Sem Artigos">
@@ -66,12 +70,18 @@
         </article>
     <?php else : ?>
         <article class="cards container mt-3">
+            <h4 class="count-result" data-aos="fade-left">
+                Total de <?= $data->count, ($data->count == 1) ? ' artigo' : ' artigos' ?>
+                <?php if (!empty($search) || !empty($category)) : ?>
+                    para <span><?= $search ?? $category ?></span>
+                <?php endif; ?>
+            </h4>
             <div class="row">
-                <?php foreach ($blog as $post) : ?>
+                <?php foreach ($data->posts as $post) : ?>
                     <?= $this->insert("widget::card", ["post" => $post, "router" => $router]); ?>
                 <?php endforeach; ?>
             </div>
-            <?= $paginator ?>
+            <?= $data->paginator ?>
         </article>
     <?php endif; ?>
 

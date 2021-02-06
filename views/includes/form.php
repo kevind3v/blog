@@ -32,7 +32,7 @@
                                 <label>Foto</label>
                                 <label class="btn file" for="upload_image">Escolher Foto</label>
                                 <input type="file" class="image file-image" id="upload_image">
-                                <input type="hidden" value="<?= $data->cover ?>" name="image" id="image-form">
+                                <input type="hidden" value="<?= $data->cover ?? "" ?>" name="image" id="image-form">
                             </div>
                             <div class="col-md-5 col-sm-12 mb-3">
                                 <label for="category">Categoria</label>

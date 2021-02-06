@@ -46,10 +46,10 @@
             <a href="<?= $router->route("web.about") ?>" class="nav-link link">Sobre</a>
           </li>
           <li class="nav-item">
-            <a href="<?= $router->route("web.category") ?>" class="nav-link link">Nova Categoria</a>
+            <a href="<?= $router->route("category.form") ?>" class="nav-link link">Nova Categoria</a>
           </li>
           <li class="nav-item">
-            <a href="<?= $router->route("web.form") ?>" class="btn btn-border ml-md-3">
+            <a href="<?= $router->route("post.form") ?>" class="btn btn-border ml-md-3">
               <i class="fas fa-plus mr-1"></i>Novo Artigo
             </a>
           </li>
