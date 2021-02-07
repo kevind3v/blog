@@ -36,8 +36,8 @@ Alguns prints do projeto:
 ![print1](readme/print01.png)
 ![print2](readme/print02.png)
 ![print3](readme/print03.png)
-![print4](readme/print04.png)
 ![print5](readme/print05.png)
+![print4](readme/print04.png)
 
 ### 🎲 Iniciar Projeto
 
