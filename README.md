@@ -61,9 +61,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <p align="center">
 <a href="https://github.com/kevind3v/">
  <img style="border-radius: 50%;" src="https://github.com/kevind3v.png" width="100px;" alt=""/>
+</a>
  <br />
  <b>Kevin Siqueira 🐘</b>
-</a>
 </p>
 
 <span align="center">

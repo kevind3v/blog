@@ -59,7 +59,8 @@ class Post extends Controller
             $post->uri = $uri;
             $post->subtitle = $data['subtitle'];
             $post->content = $data['content'];
-            $image = (new Base64("uploads", "images"))->upload($data['image'], $uri);
+            $image = (new Base64("uploads", "images"))
+                ->upload($data['image'], $uri . "-" . time());
             $post->cover = $image;
             if ($post->save()) {
                 $this->message->success("Produto atualizado com sucesso")->flash();
@@ -159,7 +160,8 @@ class Post extends Controller
             $post->subtitle = $data['subtitle'];
             $post->content = $data['content'];
             if (!empty($data['image'])) {
-                $image = (new Base64("uploads", "images"))->upload($data['image'], $uri);
+                $image = (new Base64("uploads", "images"))
+                    ->upload($data['image'], $uri . "-" . time());
                 Base64::remove($post->cover);
                 $post->cover = $image;
             }

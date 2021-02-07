@@ -1,4 +1,6 @@
 ### Composer ###
+/uploads/
+
 composer.phar
 /vendor/
 
