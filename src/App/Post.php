@@ -2,8 +2,8 @@
 
 namespace Src\App;
 
+use BrBunny\BrUploader\Base64;
 use Src\Core\Controller;
-use Src\Helpers\Image;
 use Src\Models\Category;
 use Src\Models\Post as article;
 
@@ -59,7 +59,7 @@ class Post extends Controller
             $post->uri = $uri;
             $post->subtitle = $data['subtitle'];
             $post->content = $data['content'];
-            $image = (new Image("uploads", "images"))->base64($data['image'], $uri);
+            $image = (new Base64("uploads", "images"))->upload($data['image'], $uri);
             $post->cover = $image;
             if ($post->save()) {
                 $this->message->success("Produto atualizado com sucesso")->flash();
@@ -159,8 +159,8 @@ class Post extends Controller
             $post->subtitle = $data['subtitle'];
             $post->content = $data['content'];
             if (!empty($data['image'])) {
-                $image = (new Image("uploads", "images"))->base64($data['image'], $uri);
-                Image::remove($post->cover);
+                $image = (new Base64("uploads", "images"))->upload($data['image'], $uri);
+                Base64::remove($post->cover);
                 $post->cover = $image;
             }
             if ($post->save()) {
@@ -201,7 +201,7 @@ class Post extends Controller
         if ($post) {
             $image = $post->cover;
             if ($post->destroy()) {
-                Image::remove($image);
+                Base64::remove($image);
                 $this->message->success("Artigo deletado!!")->flash();
                 $json['redirect'] = url();
                 echo json_encode($json);

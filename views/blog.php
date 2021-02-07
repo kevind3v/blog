@@ -51,8 +51,17 @@
         </div>
     </article>
 
+    <article class="container mt-3">
+        <h4 class="count-result mb-0" data-aos="zoom-in">
+            Total de <?= $data->count, ($data->count == 1) ? ' artigo' : ' artigos' ?>
+            <?php if (!empty($search) || !empty($category)) : ?>
+                para <span><?= $search ?? $category ?></span>
+            <?php endif; ?>
+        </h4>
+    </article>
+
     <?php if (empty($data->posts) && !empty($search)) : ?>
-        <article class="empty container text-center mt-3">
+        <article class="empty container text-center mt-1">
             <div class="empty_content">
                 <img data-aos="fade-up" class="img-fluid mb-2" src="<?= asset('img/svg/empty.svg') ?>" alt="Vazio!!">
                 <h3 data-aos="zoon-out">Vazio :/</h3>
@@ -61,21 +70,15 @@
             </div>
         </article>
     <?php elseif (empty($data->posts)) : ?>
-        <article class="empty container text-center mt-3">
+        <article class="empty container text-center mt-1">
             <div class="empty_content">
                 <img data-aos="fade-down" class="img-fluid mb-4" src="<?= asset('img/svg/under.svg') ?>" alt="Sem Artigos">
                 <h3 data-aos="zoom-in">Sem artigos!</h3>
-                <p data-aos="zoon-out">Ainda não possuímos artigos publicados :(</p>
+                <p data-aos="zoom-out">Ainda não possuímos artigos publicados :(</p>
             </div>
         </article>
     <?php else : ?>
-        <article class="cards container mt-3">
-            <h4 class="count-result" data-aos="zoom-in">
-                Total de <?= $data->count, ($data->count == 1) ? ' artigo' : ' artigos' ?>
-                <?php if (!empty($search) || !empty($category)) : ?>
-                    para <span><?= $search ?? $category ?></span>
-                <?php endif; ?>
-            </h4>
+        <article class="cards container mt-1">
             <div class="row">
                 <?php foreach ($data->posts as $post) : ?>
                     <?= $this->insert("widget::card", ["post" => $post, "router" => $router]); ?>
