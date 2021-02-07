@@ -63,7 +63,7 @@ class Post extends Controller
                 ->upload($data['image'], $uri . "-" . time());
             $post->cover = $image;
             if ($post->save()) {
-                $this->message->success("Produto atualizado com sucesso")->flash();
+                $this->message->success("Artigo cadastrado com sucesso")->flash();
                 $json['redirect'] = url();
                 echo json_encode($json);
                 return;
@@ -165,12 +165,6 @@ class Post extends Controller
                 Base64::remove($post->cover);
                 $post->cover = $image;
             }
-            if ($post->save()) {
-                $this->message->success("Produto atualizado com sucesso")->flash();
-                $json['redirect'] = url();
-                echo json_encode($json);
-                return;
-            }
         } catch (\Exception $e) {
             $json['message'] = $this->message->warning(
                 $e->getMessage()
@@ -178,7 +172,7 @@ class Post extends Controller
         }
 
         if ($post->save()) {
-            $this->message->success("Produto atualizado com sucesso")->flash();
+            $this->message->success("Artigo atualizado com sucesso")->flash();
             $json['redirect'] = url("artigo/{$post->uri}");
             echo json_encode($json);
             return;
