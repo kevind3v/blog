@@ -16,8 +16,6 @@
 <img alt="Maintainer" src="https://img.shields.io/badge/maintainer-@kevind3v-blue.svg?color=ef4444&style=for-the-badge">
 </a>
 
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/kevind3v/blog?color=ef4444&style=for-the-badge">
-
 <img alt="Repository size" src="https://img.shields.io/github/repo-size/kevind3v/blog?color=ef4444&style=for-the-badge">
 
 <a href="https://github.com/kevind3v/blog/commits/main">
@@ -31,11 +29,11 @@
 
 ### 🎨 Layout
 
-Alguns prints do layout:
+Alguns prints do projeto:
 
-![home](readme/print02.png)
-![home](readme/print03.png)
-![home](readme/print01.png)
+![print1](readme/print02.png)
+![print2](readme/print03.png)
+![print3](readme/print01.png)
 
 ### 🎲 Iniciar Projeto
 
@@ -47,10 +45,27 @@ $ composer install
 $ yarn install
 ```
 
-### Autor
+### 🛠 Tecnologias
 
-**Kevin Siqueira 👋🏽**
+As seguintes ferramentas foram usadas na construção do projeto:
 
-- Github: [kevind3v](https://www.linkedin.com/in/kevinssiqueira/)
+- [Expo](https://expo.io/)
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-- Linkedin: [Entre em contato!](https://www.linkedin.com/in/kevinssiqueira/)
+### ⭐️ Autor
+
+<p align="center">
+<a href="https://github.com/kevind3v/">
+ <img style="border-radius: 50%;" src="https://github.com/kevind3v.png" width="100px;" alt=""/>
+ <br />
+ <sub><b>Kevin Siqueira <br/> 🐘</b></sub>
+</a>
+ 
+</p>
+
+[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:kevinsiqueira.dev@gmail.com)](mailto:kevinsiqueira.dev@gmail.com)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fagnerpsantos/)](https://www.linkedin.com/in/kevinssiqueira/)
+[![Instagram Badge](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=Instagram&logoColor=white&link=https://www.instagram.com/kevind3v/)](https://www.instagram.com/kevind3v/)<br>
