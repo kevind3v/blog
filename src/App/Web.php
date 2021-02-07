@@ -69,11 +69,16 @@ class Web extends Controller
         $posts = (new Post())
             ->find("MATCH(title, subtitle) AGAINST(:s)", "s={$search}");
 
+
         if (!$posts->count()) {
             $this->view->show("blog", [
+                "data" => (object)[
+                    "count" => 0
+                ],
                 "search" => $search,
                 "categories" =>  $categories
             ]);
+            var_dump($posts);
             return;
         }
 
@@ -93,6 +98,8 @@ class Web extends Controller
             ],
             "categories" =>  $categories
         ]);
+
+
         return;
     }
 
